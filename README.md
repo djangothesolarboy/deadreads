@@ -10,7 +10,7 @@ Use this project skeleton as a starting point for structuring your app. Things t
 # deadreads - a Goodreads clone
 
 ## Description:
-Deadreads, a goodreads clone, is a social media application that allows users to review horror books, add horror books to shelves along with, view reviews and profiles of other horror book lovers.
+Deadreads, a goodreads clone, is a social media application that allows users to review horror books, add tags to bookcrypts, add users to your victims(followers) list, add horror books to bookcrypts along with, view reviews and profiles of other horror book lovers.
 
 Get 💀𝔰քօօӄʏ💀.
 
