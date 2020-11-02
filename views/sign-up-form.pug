@@ -1,0 +1,24 @@
+extends layout.pug
+
+block content
+
+  form(action="/users/sign-up" method="POST")
+    input(type="hidden" value=csrfToken name="_csrf")
+    label(for="username") Username:
+    input(type="text" name="username")
+    label(for="email") Email:
+    input(type="text" name="email")
+    label(for="password") Password:
+    input(type="text" name="password")
+    label(for="confirmPassword") Confirm Password:
+    input(type="text" name="confirmPassword")
+    label(for="birthdate") Birthdate:
+    input(type="date" name="birthdate")
+    label(for="fullName") Full Name:
+    input(type="text" name="fullName")
+    label(for="gender") Gender
+    select(name="gender" id="gender")
+      option(value="Male") Male
+      option(value="Female") Female
+      option(value="other") Other
+    button(type="submit") Submit
