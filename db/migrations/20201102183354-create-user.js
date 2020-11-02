@@ -1,6 +1,13 @@
 'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.addIndex(
+      'User',
+      ['username', 'email'],
+      {
+        indexName: 'UsersIndex',
+        indicesType: 'UNIQUE'
+    });
     return queryInterface.createTable('Users', {
       id: {
         allowNull: false,
