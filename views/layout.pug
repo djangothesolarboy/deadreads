@@ -2,7 +2,24 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/navbar.css')
   body
-    block content
+    nav(class="mainnav")
+      div(class="navbar")
+        h2(class='deadreads-title') deadreads
+        div(class='navsearch')
+          input(type='text' placeholder="Search horror books" class='searchinput')
+        div(class="buttons")
+          form(method='POST' action='/users/logout' class="logout")
+            button(type='submit') Logout
+          form(method='GET' action='/users/login' class='login')
+            button(type='submit') Login
+      div
+        ul(class="navlinks")
+          li: a(href='localhost:8080/') Home
+          li: a(href='localhost:8080/crypts') My Crypts
+          li: a(href='localhost:8080/profile/:id') My Profile
+
+  block content

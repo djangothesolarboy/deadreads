@@ -1,0 +1,59 @@
+.mainnav {
+  background-color: #BC3908
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-bottom: 1px solid grey;
+}
+
+.navsearch {
+  width: auto;
+  align-self: center;
+}
+
+.buttons {
+
+}
+
+.deadreads-title {
+  font-size: 2em;
+}
+
+.navlinks {
+  display: flex;
+  padding: 10px;
+  margin: 0 auto;
+  justify-content: center;
+
+}
+
+.navlinks li {
+  display: inline-block;
+}
+
+.navlinks li a {
+  padding: 0 30px;
+  text-decoration: none;
+}
+
+.searchinput {
+  min-width: 800px;
+  max-width: 800px;
+  /* flex-grow: 4 */
+}
+
+.logout {
+display: inline-block;
+}
+
+.login {
+display: inline-block;
+}
+
+.hidden {
+
+}
