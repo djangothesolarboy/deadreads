@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
-const { userValidators } = require("./utils");
+const { userValidators, loginValidators } = require("./utils");
 const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
@@ -53,6 +53,47 @@ router.post(
     }
   })
 );
+
+router.get('/login', csrfProtection, (req, res) => {
+  res.render('log-in-form', { title: 'Login', csrfToken: req.csrfToken() });
+});
+
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
+  const {
+    username,
+    password
+  } = req.body;
+
+  let errors = [];
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const user = await db.User.findOne({ 
+      where: {
+        username
+      }
+    });
+    if(user!== null) {
+      const passwordMatched = await bcrypt.compare(password, user.hashedPassword.toString());
+      if(passwordMatched) {
+        return res.redirect('/');
+      }
+    }
+    errors.push('Login failed for the provided username and password.');
+  } else {
+    errors = validatorErrors.array().map((error) => error.msg);
+  }
+    res.render('user-login', {
+      title: 'Login',
+      username,
+      errors,
+      csrfToken: req.csrfToken(),
+    });
+}));
+
+
+
 
 router.post("/");
 module.exports = router;
