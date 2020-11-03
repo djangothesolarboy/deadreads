@@ -1,0 +1,27 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+
+  +validationErrorSummary(errors)
+  form(action="/users/sign-up" method="POST")
+    input(type="hidden" value=csrfToken name="_csrf")
+    label(for="username") Username:
+    input(type="text" name="username" required)
+    label(for="email") Email:
+    input(type="text" name="email" required)
+    label(for="password") Password:
+    input(type="text" name="password" required)
+    label(for="confirmPassword") Confirm Password:
+    input(type="text" name="confirmPassword" required)
+    label(for="birthdate") Birthdate:
+    input(type="date" name="birthdate" required)
+    label(for="fullName") Full Name:
+    input(type="text" name="fullName" required)
+    label(for="gender") Gender
+    select(name="gender" id="gender" required)
+      option(value="Male") Male
+      option(value="Female") Female
+      option(value="other") Other
+    button(type="submit") Submit

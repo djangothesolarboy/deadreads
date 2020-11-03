@@ -1,9 +1,58 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+const { csrfProtection, asyncHandler } = require("./utils");
+const { userValidators } = require("./utils");
+const db = require("../db/models");
+const bcrypt = require("bcryptjs");
+const { validationResult } = require("express-validator");
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get("/", function (req, res, next) {
+  res.send("respond with a resource");
 });
 
+router.get("/sign-up", csrfProtection, (req, res) => {
+  const user = db.User.build();
+  res.render("sign-up-form", {
+    title: "New User",
+    user,
+    csrfToken: req.csrfToken(),
+  });
+});
+
+router.post(
+  "/sign-up",
+  csrfProtection,
+  userValidators,
+  asyncHandler(async (req, res) => {
+    const { username, email, birthdate, gender, fullName, password } = req.body;
+    console.log(username, email, birthdate);
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await db.User.create({
+      username,
+      email,
+      birthdate,
+      gender,
+      fullName,
+      hashedPassword,
+    });
+
+    const validatorErrors = validationResult(req);
+    if (validatorErrors.isEmpty()) {
+      await user.save();
+      res.redirect("/");
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("sign-up-form", {
+        title: "New User",
+        user,
+        errors,
+        csrfToken: req.csrfToken(),
+      });
+    }
+  })
+);
+
+router.post("/");
 module.exports = router;
