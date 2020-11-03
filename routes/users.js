@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
-const { check, validationResult } = require("express-validator");
+const { userValidators } = require("./utils");
 const db = require("../db/models");
 const bcrypt = require("bcryptjs");
+const { validationResult } = require("express-validator");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -22,6 +23,7 @@ router.get("/sign-up", csrfProtection, (req, res) => {
 router.post(
   "/sign-up",
   csrfProtection,
+  userValidators,
   asyncHandler(async (req, res) => {
     const { username, email, birthdate, gender, fullName, password } = req.body;
     console.log(username, email, birthdate);
@@ -36,12 +38,18 @@ router.post(
       hashedPassword,
     });
 
-    try {
-      // await user.save();
-      console.log("hi");
+    const validatorErrors = validationResult(req);
+    if (validatorErrors.isEmpty()) {
+      await user.save();
       res.redirect("/");
-    } catch (e) {
-      //do something with the error
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("sign-up-form", {
+        title: "New User",
+        user,
+        errors,
+        csrfToken: req.csrfToken(),
+      });
     }
   })
 );
