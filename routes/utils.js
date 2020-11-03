@@ -1,5 +1,6 @@
 const csrf = require("csurf");
 const { check } = require("express-validator");
+const db = require("../db/models");
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -15,7 +16,7 @@ const userValidators = [
     .isEmail()
     .withMessage("Please provide a valid email.")
     .custom((value) => {
-      return db.User.findOne({ where: { emailAddress: value } }).then(
+      return db.User.findOne({ where: { email: value } }).then(
         (user) => {
           if (user) {
             return Promise.reject(
