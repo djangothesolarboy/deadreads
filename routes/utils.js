@@ -42,4 +42,13 @@ const userValidators = [
   check("birthdate").exists({ checkFalsy: true }),
 ];
 
-module.exports = { csrfProtection, asyncHandler, userValidators };
+const loginValidators = [
+  check('username')
+    .exists({ checkFalsy: true })
+    .withMessage('PLease provide a valid username.'),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('PLease provide a valid password.'),
+];
+
+module.exports = { csrfProtection, asyncHandler, userValidators, loginValidators };

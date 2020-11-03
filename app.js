@@ -3,6 +3,12 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const session = require('express-session');
+const { sequelize } = require('./db/models');
+const { restoreUser } = require('./auth');
+const { asyncHandler } = require('./routes/utils');
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -12,11 +18,25 @@ const app = express();
 // view engine setup
 app.set("view engine", "pug");
 
+const store = new SequelizeStore({
+  db: sequelize,
+});
+app.use(
+  session({
+    secret: 'a5d63fc5-17a5-459c-b3ba-6d81792158fc',
+    store,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+store.sync();
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(asyncHandler(restoreUser));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

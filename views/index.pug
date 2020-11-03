@@ -9,3 +9,7 @@ append head
 block content
   h1= title
   p Welcome to your Project Skeleton
+  form(method='POST' action='/users/logout')
+    button(type='submit') Logout
+  form(method='GET' action='/users/login')
+    button(type='submit') Login
