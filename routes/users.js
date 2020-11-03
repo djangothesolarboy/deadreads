@@ -9,13 +9,11 @@ const { loginUser, logoutUser, requireAuth } = require('../auth');
 
 /* GET users listing. */
 router.get("/",
-requireAuth,
 function (req, res, next) {
   res.send("respond with a resource");
 });
 
 router.get("/sign-up",
-requireAuth,
 csrfProtection, 
 (req, res) => {
   const user = db.User.build();
@@ -30,7 +28,6 @@ router.post(
   "/sign-up",
   csrfProtection,
   userValidators,
-  requireAuth,
   asyncHandler(async (req, res) => {
     const { username, email, birthdate, gender, fullName, password } = req.body;
     console.log(username, email, birthdate);
@@ -64,14 +61,12 @@ router.post(
 );
 
 router.get('/login',
-requireAuth,
 csrfProtection, 
 (req, res) => {
   res.render('log-in-form', { title: 'Login', csrfToken: req.csrfToken() });
 });
 
 router.post('/login',
-requireAuth,
  csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const {
     username,
