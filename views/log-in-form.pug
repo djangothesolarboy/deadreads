@@ -2,12 +2,19 @@ extends layout.pug
 
 include utils.pug
 
+append head
+    link(rel="stylesheet" href="/stylesheets/login.css")
+
 block content
     +validationErrorSummary(errors)
-    form(action='/users/login' method='POST')
+    form(action='/users/login' class="form" method='POST')
         input(type='hidden' name='_csrf' value=csrfToken)
-        label(for="username") Username:
-        input(type="text" name="username" required)
-        label(for="password") Password:
-        input(type="password" name="password" required)
-        button(type="submit") Login
+        div.form-field
+            label(for="username") Username:
+            input(type="text" name="username" required)
+        div.form-field
+            label(for="password") Password:
+            input(type="password" name="password" required)
+        div.form-field
+            button(type="submit" class="form-field__button") 
+                span Login
