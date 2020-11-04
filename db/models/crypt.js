@@ -5,7 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, {});
   Crypt.associate = function(models) {
-    // associations can be defined here
+    const columnMapping = {
+      through: 'CryptJoinBook',
+      otherKey: 'bookId',
+      foreignKey: 'cryptId'
+    }
+
+    Crypt.belongsToMany(models.Book, columnMapping);
   };
   return Crypt;
 };

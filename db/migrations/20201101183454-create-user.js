@@ -22,10 +22,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      bookcryptsId: {
-        type: Sequelize.INTEGER,
-        references: { model: "Crypts" },
-      },
       birthdate: {
         allowNull: false,
         type: Sequelize.DATE,
