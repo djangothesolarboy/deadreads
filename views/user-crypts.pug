@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+
+    table
+        thead
+            tr
+                th Read
+                th Want to Read
+                th Currently Reading
+        tbody
+            td
+                each crypt in crypts
+                    tr:a(href="users/:id/crypts/:id")= crypt.name
