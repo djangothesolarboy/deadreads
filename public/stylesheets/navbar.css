@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Gypsy Curse";
+  src: url('Gypsy-Curse.ttf')
+}
+
 .mainnav {
   background-color: #BC3908;
 }
@@ -30,7 +35,7 @@ padding: 0 10px;
 
 .deadreads-title:hover {
   transition: text-shadow 4s;
-  text-shadow: 
+  text-shadow:
   1px 4px 1px #300000,
   1px 6px 1px #400000,
   1px 8px 1px #500000,
