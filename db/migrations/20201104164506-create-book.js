@@ -24,6 +24,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      synopsis: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
       tagId: {
         type: Sequelize.INTEGER
       },

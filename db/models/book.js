@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     publisher: DataTypes.STRING,
     publicationDate: DataTypes.DATE,
     tagId: DataTypes.INTEGER,
-    coverArt: DataTypes.STRING
+    coverArt: DataTypes.STRING,
+    synopsis: DataTypes.TEXT
   }, {});
   Book.associate = function(models) {
     const columnMapping = {

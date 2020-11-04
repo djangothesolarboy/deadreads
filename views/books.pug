@@ -2,6 +2,19 @@ extends layout.pug
 
 block content
 
-    ul
-        each book in books
-            li= book.title
+    table
+        thead
+            tr
+                th
+                th
+                th
+                th
+                th
+        tbody
+            td
+                each book in books
+                    tr= book.coverArt
+                    tr= book.title
+                    tr by #{book.author}
+                    tr= book.synopsis
+                    tr published #{book.publicationDate}
