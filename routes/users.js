@@ -14,7 +14,7 @@ function (req, res, next) {
 });
 
 router.get("/sign-up",
-csrfProtection, 
+csrfProtection,
 (req, res) => {
   const user = db.User.build();
   res.render("sign-up-form", {
@@ -42,6 +42,21 @@ router.post(
       hashedPassword,
     });
 
+    const hasReadCrypt = db.Crypt.create({
+      name: 'Have Read',
+      userId: user.id
+    });
+
+    const wantsToReadCrypt = db.Crypt.create({
+      name: 'Want to Read',
+      userId: user.id
+    });
+
+    const currentlyReadingCrypt = db.Crypt.create({
+      name: 'Currently Reading',
+      userId: user.id
+    });
+
     const validatorErrors = validationResult(req);
     if (validatorErrors.isEmpty()) {
       loginUser(req, res, user);
@@ -61,7 +76,7 @@ router.post(
 );
 
 router.get('/login',
-csrfProtection, 
+csrfProtection,
 (req, res) => {
   res.render('log-in-form', { title: 'Login', csrfToken: req.csrfToken() });
 });
@@ -78,7 +93,7 @@ router.post('/login',
   const validatorErrors = validationResult(req);
 
   if (validatorErrors.isEmpty()) {
-    const user = await db.User.findOne({ 
+    const user = await db.User.findOne({
       where: {
         username
       }
@@ -109,7 +124,19 @@ requireAuth,
 (req, res) => {
   logoutUser(req, res);
   res.redirect('/');
-});
+  });
+
+router.get('/:id(\\d+)/crypts', requireAuth, asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+
+    const crypts = await db.Crypt.findAll({
+        where: {
+            userId
+        }
+    });
+
+    res.render('user-crypts', { title: 'My Crypts', crypts });
+}));
 
 
 router.post("/");
