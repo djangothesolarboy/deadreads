@@ -4,6 +4,7 @@ include utils.pug
 
 append head
     link(rel="stylesheet" href="/stylesheets/login.css")
+    script(src="/javascripts/demologin.js")
 
 block content
     +validationErrorSummary(errors)
@@ -11,10 +12,13 @@ block content
         input(type='hidden' name='_csrf' value=csrfToken)
         div.form-field
             label(for="username") Username:
-            input(type="text" name="username" required)
+            input(type="text" name="username" class="username" required)
         div.form-field
             label(for="password") Password:
-            input(type="password" name="password" required)
+            input(type="password" name="password" class="password" required)
         div.form-field
-            button(type="submit" class="form-field__button") 
+            button(type="submit" class="form-field__button")
                 span Login
+        div.form-field
+            button(type="submit" class="demobtn form-field__button")
+                span Demo Login
