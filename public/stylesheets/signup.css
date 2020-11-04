@@ -26,17 +26,50 @@ body {
 }
 
 .form-field__button {
-    border-radius: 2%;
+    border-radius: 10%;
     width: 142px;
     height: 22px;
     margin-bottom: 8px;
     padding-bottom: 2px;
     text-align: center;
+    color: white;
+    background-color: #220901;
+    transition: text-shadow 3s;
 }
 
 .form-field__button:hover {
-    background-color: #bc3908;
-    color: white;
+    animation-name: color-background;
+    animation-duration: 8s;
+  
+    text-shadow: 
+      1px 4px 1px #300000,
+      1px 6px 1px #400000,
+      1px 8px 1px #500000,
+      1px 10px 1px #600000,
+      2px 12px 1px #700000,
+      2px 14px 1px #800000,
+      2px 16px 1px #900000,
+      2px 18px 1px #A00000,
+      3px 20px 1px #B00000,
+      3px 22px 1px #C00000,
+      3px 24px 1px #D00000,
+      3px 26px 1px #E00000,
+      3px 28px 1px #F00000,
+      3px 30px 1px #FA0000,
+      3px 32px 1px #FB0000,
+      4px 34px 1px #FC0000,
+      4px 36px 1px #FD0000,
+      4px 38px 1px #FE0000,
+      4px 40px 2px #FF0000;
+    
+  }
+  
+  @keyframes color-background {
+  0%   {background-color: white;}
+  10%  {background-color: rgb(153, 106, 114);}
+  20%  {background-color: red;}
+  100% {background-color: red;}
+  }
 }
 
 .errors {
