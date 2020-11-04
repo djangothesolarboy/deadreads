@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     hashedPassword: DataTypes.STRING,
-    bookcryptsId: DataTypes.INTEGER,
+    // cryptId: DataTypes.INTEGER,
     birthdate: DataTypes.DATE,
     fullName: DataTypes.STRING,
     gender: DataTypes.STRING
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Crypt, { foreignKey: 'userId' });
   };
   return User;
 };
