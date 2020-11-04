@@ -50,7 +50,7 @@ app.use(asyncHandler(restoreUser));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use('/books', booksRouter);
-// app.use('/users/:id(\\d+)/crypts', cryptsRouter);
+app.use('/crypts', cryptsRouter);
 
 // catch 404 and forward to error handler
 app.use(create404);
