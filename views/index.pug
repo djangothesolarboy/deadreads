@@ -20,7 +20,7 @@ block content
         if books
           each book in books
             div.books
-              a(href=`/books/${book.id}`): img(src=book.coverArt class="book-image")
+              a(href=`/books/${book.id}` class="bookimglink"): img(src=book.coverArt class="book-image")
       div.booklink-container
         a(href="/books" class='booklink') Browse More Books
     .reviews-container

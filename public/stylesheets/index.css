@@ -66,6 +66,11 @@ a {
     object-fit: fill;
 }
 
+.bookimglink {
+    height: 0;
+    width: 0;
+}
+
 .books-container {
     max-width: 900px;
     width: 900px;
@@ -90,13 +95,14 @@ a {
 }
 
 .books {
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
 }
 
 .reviews-container {
     margin-top: 50px;
     max-width: 500px;
     background-color: rgb(210, 180, 130);
-    box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
     border-radius: 25px;
 }
