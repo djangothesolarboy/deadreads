@@ -12,7 +12,7 @@ h1 {
 
 body {
     background-color: #F6AA1C;
-    /* font-family: 'Lato', sans-serif, 'Merriweather', serif; */
+    font-family: 'Lato', sans-serif, 'Merriweather', serif;
 }
 
 a {
@@ -29,5 +29,78 @@ a {
 
 .list {
     padding: 20px;
+
 }
 
+.main-container {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
+}
+
+.welcome {
+   text-align: center;
+   margin-top: 15px;
+   font-size: 42px;
+   border-bottom: 3px solid #220901;
+   max-width: 600px;
+   margin-bottom: 30px;
+}
+
+.books-title, .reviews-title {
+    font-size: 32px;
+    border-bottom: 1px solid black;
+    text-align: center;
+
+
+}
+
+.book-image {
+    max-width: 250px;
+    max-height: 240px;
+    object-fit: fill;
+}
+
+.books-container {
+    max-width: 900px;
+    width: 900px;
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: rgb(210, 180, 130);
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.1)
+}
+
+.nested-books-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booklink-container {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.books {
+}
+
+.reviews-container {
+    margin-top: 50px;
+    max-width: 500px;
+    background-color: rgb(210, 180, 130);
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.reviewlink-container {
+    text-align: center;
+}
