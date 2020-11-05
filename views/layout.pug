@@ -10,23 +10,23 @@ html
     nav(class="mainnav")
       div(class="navbar")
         div(class='pagetitle')
-          h2(class='deadreads-title') deadreads
+          h2: a(href="/" class='deadreads-title') deadreads
         div(class='navsearch')
           input(type='text' placeholder="Search horror books" class='searchinput')
         div(class="usericons")
           div(class='tags')
-            a(href='localhost:8080/tags') T
+            a(href='/tags') T
           div(class='crypts')
-            a(href='localhost:8080/crypts') C
+            a(href='/crypts') C
           div(class='userprofile')
-            a(href='localhost:8080/users/:id') U
+            a(href='/users/:id') U
 
 
       div
         ul(class="navlinks")
-          li: a(href='localhost:8080/') Home
-          li: a(href='localhost:8080/crypts') My Crypts
-          li: a(href='localhost:8080/profile/:id') My Profile
+          li: a(href='/') Home
+          li: a(href='/crypts') My Crypts
+          li: a(href='/profile/:id') My Profile
         //- div(class="buttons")
         //-     form(method='POST' action='/users/logout' class="logout")
         //-       button(type='submit') Logout

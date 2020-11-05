@@ -72,6 +72,10 @@ router.post(
   })
 );
 
+router.get("/login", csrfProtection, (req, res) => {
+  res.render("log-in-form", { title: "Login", csrfToken: req.csrfToken() });
+});
+
 router.post(
   "/login",
   // csrfProtection,
