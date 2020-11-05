@@ -119,8 +119,8 @@ router.post(
       errors,
       csrfToken: req.csrfToken(),
     });
-  })
-);
+  };
+});
 
 router.post("/logout", requireAuth, (req, res) => {
   logoutUser(req, res);
