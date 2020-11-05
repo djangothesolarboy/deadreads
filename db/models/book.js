@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "reviewId",
     };
 
-    Book.belongsToMany(models.Crypt, columnMapping, columnMappingReview);
+    Book.belongsToMany(models.Crypt, columnMapping);
+    Book.belongsToMany(models.Review, columnMappingReview);
   };
   return Book;
 };
