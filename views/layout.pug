@@ -25,8 +25,8 @@ html
       div
         ul(class="navlinks")
           li: a(href='/') Home
-          li: a(href='/crypts') My Crypts
-          li: a(href='/profile/:id') My Profile
+          li: a(href=`/users/${user.id}/crypts`) My Crypts
+          li: a(href=`/users/${user.id}`) My Profile
         //- div(class="buttons")
         //-     form(method='POST' action='/users/logout' class="logout")
         //-       button(type='submit') Logout
