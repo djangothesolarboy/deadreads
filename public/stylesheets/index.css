@@ -18,3 +18,16 @@ body {
 a {
     font-family: 'Merriweather', serif;
 }
+
+.book {
+    display: inline-flex;
+    margin-left: 20px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    padding: 20px;
+}
+

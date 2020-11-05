@@ -1,6 +1,5 @@
 'use strict';
 
-const { col } = require("sequelize/types/lib/operators");
 
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {

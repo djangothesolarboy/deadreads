@@ -1,20 +1,12 @@
 extends layout.pug
 
 block content
-
-    table
-        thead
-            tr
-                th
-                th
-                th
-                th
-                th
-        tbody
-            td
-                each book in books
-                    tr= book.coverArt
-                    tr= book.title
-                    tr by #{book.author}
-                    tr= book.synopsis
-                    tr published #{book.publicationDate}
+  ul
+    each book in books
+      div.book
+        img(src=`${book.coverArt}` width="80px" height="100px")
+        ul.list
+          li= book.title
+          li by #{book.author}
+          li= book.synopsis
+          li published #{book.publicationDate}
