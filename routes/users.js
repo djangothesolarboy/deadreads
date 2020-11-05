@@ -12,10 +12,7 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
-router.get("/sign-up",
-csrfProtection,
-(req, res) => {
-
+router.get("/sign-up", csrfProtection, (req, res) => {
   const user = db.User.build();
   res.render("sign-up-form", {
     title: "New User",
@@ -43,18 +40,18 @@ router.post(
     });
 
     const hasReadCrypt = db.Crypt.create({
-      name: 'Have Read',
-      userId: user.id
+      name: "Have Read",
+      userId: user.id,
     });
 
     const wantsToReadCrypt = db.Crypt.create({
-      name: 'Want to Read',
-      userId: user.id
+      name: "Want to Read",
+      userId: user.id,
     });
 
     const currentlyReadingCrypt = db.Crypt.create({
-      name: 'Currently Reading',
-      userId: user.id
+      name: "Currently Reading",
+      userId: user.id,
     });
 
     const validatorErrors = validationResult(req);
@@ -75,17 +72,13 @@ router.post(
   })
 );
 
-
-router.get('/login',
-csrfProtection,
-(req, res) => {
-  res.render('log-in-form', { title: 'Login', csrfToken: req.csrfToken() });
-
+router.get("/login", csrfProtection, (req, res) => {
+  res.render("log-in-form", { title: "Login", csrfToken: req.csrfToken() });
 });
 
 router.post(
   "/login",
-  csrfProtection,
+  // csrfProtection,
   loginValidators,
   asyncHandler(async (req, res) => {
     const { username, password } = req.body;
@@ -95,19 +88,23 @@ router.post(
 
     const validatorErrors = validationResult(req);
 
-  if (validatorErrors.isEmpty()) {
-    const user = await db.User.findOne({
-      where: {
-        username
-      }
-    });
-    if(user!== null) {
-      const passwordMatched = await bcrypt.compare(password, user.hashedPassword.toString());
-      if(passwordMatched) {
-        loginUser(req, res, user);
-        return req.session.save(() => {
-          res.redirect('/');
-        });
+    if (validatorErrors.isEmpty()) {
+      const user = await db.User.findOne({
+        where: {
+          username,
+        },
+      });
+      if (user !== null) {
+        const passwordMatched = await bcrypt.compare(
+          password,
+          user.hashedPassword.toString()
+        );
+        if (passwordMatched) {
+          loginUser(req, res, user);
+          return req.session.save(() => {
+            res.redirect("/");
+          });
+        }
       }
       errors.push("Login failed for the provided username and password.");
     } else {
@@ -124,21 +121,24 @@ router.post(
 
 router.post("/logout", requireAuth, (req, res) => {
   logoutUser(req, res);
-  res.redirect('/');
-  });
+  res.redirect("/");
+});
 
-router.get('/:id(\\d+)/crypts', requireAuth, asyncHandler(async (req, res) => {
+router.get(
+  "/:id(\\d+)/crypts",
+  requireAuth,
+  asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
 
     const crypts = await db.Crypt.findAll({
-        where: {
-            userId
-        }
+      where: {
+        userId,
+      },
     });
 
-    res.render('user-crypts', { title: 'My Crypts', crypts });
-}));
-
+    res.render("user-crypts", { title: "My Crypts", crypts });
+  })
+);
 
 router.post("/");
 module.exports = router;
