@@ -6,6 +6,7 @@ const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const { loginUser, logoutUser, requireAuth } = require("../auth");
+const { Review } = require('../db/models');
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -151,6 +152,11 @@ router.get(
     res.render("user-page", { title: "My Profile", user });
   })
 );
+
+router.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
+  const reviews = await Review.findAll();
+  res.render('reviews', { title: 'Reviews', reviews });
+}));
 
 router.post("/");
 module.exports = router;
