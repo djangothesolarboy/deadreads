@@ -182,8 +182,18 @@ router.get(
 );
 
 router.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
-  const reviews = await Review.findAll();
-  res.render('reviews', { title: 'Reviews', reviews });
+  userId = parseInt(req.params.id);
+  const reviewBook = await db.Review.findAll({
+    include: db.Book
+  })
+  console.log(reviewBook[0].Books[0].coverArt, "---------------------");
+  const reviews = await db.Review.findAll({
+    where: {
+      userId
+    },
+    // include: [ db.User, db.ReviewsJoinsBooks ]
+  });
+  res.render('reviews', { title: 'Reviews', reviews, reviewBook });
 }));
 
 router.post("/");

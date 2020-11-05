@@ -1,6 +1,11 @@
 extends layout.pug
 
+append head
+    link(rel="stylesheet" href="/stylesheets/reviews.css")
+
 block content
-    ul
-        each review in reviews
-            li= review.review
+    ul.reviews-container
+        .review-container
+            img(src=`${reviewBook[0].Books[0].coverArt}` class='review-cover')
+            a(href="/users" class="review-user") User
+            li.review= reviewBook.review
