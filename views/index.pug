@@ -1,4 +1,4 @@
-extends layout
+extends layout.pug
 
 append head
   //- add page specific styles by appending to the head
@@ -7,3 +7,30 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
+
+  div.main-container
+
+    h2.welcome Welcome to deadreads!
+
+    p Here we've curated a selection of horrific novels for you to browse.
+
+    div.books-container
+      p.books-title Books
+      div.nested-books-container
+        if books
+          each book in books
+            div.books
+              a(href=`/books/${book.id}` class="bookimglink"): img(src=book.coverArt class="book-image")
+      div.booklink-container
+        a(href="/books" class='booklink') Browse More Books
+    .reviews-container
+      p.reviews-title Recent Reviews
+      div.nested-reviews-container
+        if review
+          each review in reviews
+            li= user.fullName
+            li= review.text
+      div.reviewlink-container
+        a(href="/reviews" class="reviewlink") Browse Reviews
+
+  include footer.pug

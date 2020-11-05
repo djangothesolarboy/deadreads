@@ -1,0 +1,14 @@
+.footer {
+  min-height: 100px;
+  background-color: #941B0C;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  min-height: 90px;
+}

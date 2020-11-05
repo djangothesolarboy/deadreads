@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define(
@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "reviewId",
     };
 
-    Book.belongsToMany(models.Crypt, columnMapping, columnMappingReview);
+    Book.belongsToMany(models.Crypt, columnMapping);
+    Book.belongsToMany(models.Review, columnMappingReview);
   };
   return Book;
 };
