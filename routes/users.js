@@ -154,7 +154,12 @@ router.get(
 );
 
 router.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
-  const reviews = await Review.findAll();
+  userId = parseInt(req.params.id);
+  const reviews = await Review.findAll({
+    where: {
+      userId
+    }
+  });
   res.render('reviews', { title: 'Reviews', reviews });
 }));
 
