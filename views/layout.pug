@@ -27,10 +27,10 @@ html
           li: a(href='/') Home
           li: a(href=`/users/${user.id}/crypts`) My Crypts
           li: a(href=`/users/${user.id}`) My Profile
-        //- div(class="buttons")
-        //-     form(method='POST' action='/users/logout' class="logout")
-        //-       button(type='submit') Logout
-        //-     form(method='GET' action='/users/login' class='login')
-        //-       button(type='submit') Login
+        div(class="buttons")
+            form(method='POST' action='/users/logout' class="logout")
+              button(type='submit') Logout
+            form(method='GET' action='/users/login' class='login')
+              button(type='submit') Login
 
   block content
