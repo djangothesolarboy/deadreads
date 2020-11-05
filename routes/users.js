@@ -110,11 +110,11 @@ router.post(
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }
-    res.render("user-login", {
+    res.render("log-in-form", {
       title: "Login",
       username,
       errors,
-      csrfToken: req.csrfToken(),
+      // csrfToken: req.csrfToken(),
     });
   })
 );
@@ -137,6 +137,18 @@ router.get(
     });
 
     res.render("user-crypts", { title: "My Crypts", crypts });
+  })
+);
+
+router.get(
+  "/:id(\\d+)",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    userId = parseInt(req.params.id);
+
+    const user = await db.User.findByPk(userId);
+
+    res.render("user-page", { title: "My Profile", user });
   })
 );
 
