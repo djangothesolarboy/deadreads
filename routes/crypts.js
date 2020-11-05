@@ -1,28 +1,32 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const { requireAuth } = require('../auth');
-const { asyncHandler } = require('./utils');
-const { Crypt, User, Book, CryptJoinBook } = require('../db/models');
+const { requireAuth } = require("../auth");
+const { asyncHandler } = require("./utils");
+const { Crypt, User, Book, CryptJoinBook } = require("../db/models");
 
-router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
-    const cryptId = parseInt(req.params.id, 10)
+router.get(
+  "/:id",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const cryptId = parseInt(req.params.id);
+    console.log(cryptId);
     const crypt = await Crypt.findByPk(cryptId);
 
     const books = await CryptJoinBook.findAll({
-        where: {
-            cryptId
-        }
-    })
+      where: {
+        cryptId,
+      },
+    });
 
     if (books.length > 0) {
-        res.render('crypt', { title: `${crypt.name}`, crypt, books });
+      res.render("crypt", { title: `${crypt.name}`, crypt, books });
     } else {
-        res.render('crypt', {title: `${crypt.name}`});
+      res.render("crypt", { title: `${crypt.name}` });
     }
 
-    console.log(books)
-
-}))
+    console.log(books);
+  })
+);
 
 module.exports = router;
