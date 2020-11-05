@@ -40,17 +40,17 @@ router.post(
       hashedPassword,
     });
 
-    const hasReadCrypt = db.Crypt.create({
+    const hasReadCrypt = await db.Crypt.create({
       name: "Have Read",
       userId: user.id,
     });
 
-    const wantsToReadCrypt = db.Crypt.create({
+    const wantsToReadCrypt = await db.Crypt.create({
       name: "Want to Read",
       userId: user.id,
     });
 
-    const currentlyReadingCrypt = db.Crypt.create({
+    const currentlyReadingCrypt = await db.Crypt.create({
       name: "Currently Reading",
       userId: user.id,
     });
@@ -131,13 +131,41 @@ router.get(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
 
+    const user = await db.User.findByPk(userId)
+
     const crypts = await db.Crypt.findAll({
       where: {
         userId,
       },
+      order: [['id']]
     });
 
-    res.render("user-crypts", { title: "My Crypts", crypts });
+    res.render("user-crypts", { title: "My Crypts", crypts, user });
+  })
+);
+
+router.get(
+  "/:id(\\d+)/crypts/:id(\\d+)",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+
+    const cryptId = parseInt(req.params.id, 10)
+    const crypt = await db.Crypt.findByPk(cryptId);
+    const userId = crypt.userId;
+
+
+    const books = await db.CryptJoinBook.findAll({
+      where: {
+        cryptId,
+      },
+    });
+
+    if (books.length > 0) {
+      res.render("crypt", { title: crypt.name, crypt, books });
+    } else {
+      res.render("crypt", { title: crypt.name, crypt });
+    }
+
   })
 );
 
@@ -145,7 +173,7 @@ router.get(
   "/:id(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
-    userId = parseInt(req.params.id);
+    const userId = parseInt(req.params.id, 10);
 
     const user = await db.User.findByPk(userId);
 
@@ -154,8 +182,18 @@ router.get(
 );
 
 router.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
-  const reviews = await Review.findAll();
-  res.render('reviews', { title: 'Reviews', reviews });
+  userId = parseInt(req.params.id);
+  const reviewBook = await db.Review.findAll({
+    include: db.Book
+  })
+  console.log(reviewBook[0].Books[0].coverArt, "---------------------");
+  const reviews = await db.Review.findAll({
+    where: {
+      userId
+    },
+    // include: [ db.User, db.ReviewsJoinsBooks ]
+  });
+  res.render('reviews', { title: 'Reviews', reviews, reviewBook });
 }));
 
 router.post("/");

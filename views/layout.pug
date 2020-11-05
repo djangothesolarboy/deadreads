@@ -2,6 +2,8 @@ doctype html
 html
   head
       block head
+        if crypts
+          title= crypts[0].name
         title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/navbar.css')
@@ -20,7 +22,7 @@ html
           div(class='crypts')
             a(href='/crypts') C
           div(class='userprofile')
-            a(href='/users/:id') U
+            a(href=`/users/${user.id}`) U
 
 
       div
@@ -29,10 +31,10 @@ html
           if user
             li: a(href=`/users/${user.id}/crypts`) My Crypts
             li: a(href=`/users/${user.id}`) My Profile
-        //- div(class="buttons")
-        //-     form(method='POST' action='/users/logout' class="logout")
-        //-       button(type='submit') Logout
-        //-     form(method='GET' action='/users/login' class='login')
-        //-       button(type='submit') Login
+        div(class="buttons")
+            form(method='POST' action='/users/logout' class="logout")
+              button(type='submit') Logout
+            form(method='GET' action='/users/login' class='login')
+              button(type='submit') Login
 
   block content
