@@ -145,10 +145,35 @@ router.get(
 );
 
 router.get(
+  "/:id(\\d+)/crypts/:id(\\d+)",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+
+    const cryptId = parseInt(req.params.id, 10)
+    const crypt = await db.Crypt.findByPk(cryptId);
+    const userId = crypt.userId;
+
+
+    const books = await db.CryptJoinBook.findAll({
+      where: {
+        cryptId,
+      },
+    });
+
+    if (books.length > 0) {
+      res.render("crypt", { title: crypt.name, crypt, books });
+    } else {
+      res.render("crypt", { title: crypt.name, crypt });
+    }
+
+  })
+);
+
+router.get(
   "/:id(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
-    userId = parseInt(req.params.id);
+    const userId = parseInt(req.params.id, 10);
 
     const user = await db.User.findByPk(userId);
 

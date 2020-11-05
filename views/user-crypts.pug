@@ -10,5 +10,6 @@ block content
                 th Currently Reading
         tbody
             tr
-                each crypt in crypts
-                    td: a(href='crypts/#{user.id}')= crypt.name
+                td: a(href=`/users/${user.id}/crypts/${crypts[0].id}`)= crypts[0].name
+                td: a(href=`/users/${user.id}/crypts/${crypts[1].id}`)= crypts[1].name
+                td: a(href=`/users/${user.id}/crypts/${crypts[2].id}`)= crypts[2].name
