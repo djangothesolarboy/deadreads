@@ -39,6 +39,21 @@ router.post(
       hashedPassword,
     });
 
+    const hasReadCrypt = db.Crypt.create({
+      name: "Have Read",
+      userId: user.id,
+    });
+
+    const wantsToReadCrypt = db.Crypt.create({
+      name: "Want to Read",
+      userId: user.id,
+    });
+
+    const currentlyReadingCrypt = db.Crypt.create({
+      name: "Currently Reading",
+      userId: user.id,
+    });
+
     const validatorErrors = validationResult(req);
     if (validatorErrors.isEmpty()) {
       loginUser(req, res, user);
@@ -63,7 +78,7 @@ router.get("/login", csrfProtection, (req, res) => {
 
 router.post(
   "/login",
-  csrfProtection,
+  // csrfProtection,
   loginValidators,
   asyncHandler(async (req, res) => {
     const { username, password } = req.body;
@@ -108,6 +123,22 @@ router.post("/logout", requireAuth, (req, res) => {
   logoutUser(req, res);
   res.redirect("/");
 });
+
+router.get(
+  "/:id(\\d+)/crypts",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+
+    const crypts = await db.Crypt.findAll({
+      where: {
+        userId,
+      },
+    });
+
+    res.render("user-crypts", { title: "My Crypts", crypts });
+  })
+);
 
 router.post("/");
 module.exports = router;
