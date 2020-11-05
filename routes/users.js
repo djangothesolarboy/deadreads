@@ -40,17 +40,17 @@ router.post(
       hashedPassword,
     });
 
-    const hasReadCrypt = db.Crypt.create({
+    const hasReadCrypt = await db.Crypt.create({
       name: "Have Read",
       userId: user.id,
     });
 
-    const wantsToReadCrypt = db.Crypt.create({
+    const wantsToReadCrypt = await db.Crypt.create({
       name: "Want to Read",
       userId: user.id,
     });
 
-    const currentlyReadingCrypt = db.Crypt.create({
+    const currentlyReadingCrypt = await db.Crypt.create({
       name: "Currently Reading",
       userId: user.id,
     });
@@ -131,13 +131,16 @@ router.get(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
 
+    const user = await db.User.findByPk(userId)
+
     const crypts = await db.Crypt.findAll({
       where: {
         userId,
       },
+      order: [['id']]
     });
 
-    res.render("user-crypts", { title: "My Crypts", crypts });
+    res.render("user-crypts", { title: "My Crypts", crypts, user });
   })
 );
 

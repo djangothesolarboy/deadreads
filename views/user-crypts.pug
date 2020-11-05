@@ -9,6 +9,6 @@ block content
                 th Want to Read
                 th Currently Reading
         tbody
-            td
+            tr
                 each crypt in crypts
-                    tr:a(href="users/:id/crypts/:id")= crypt.name
+                    td: a(href='crypts/#{user.id}')= crypt.name
