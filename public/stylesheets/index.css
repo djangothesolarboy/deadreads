@@ -20,29 +20,6 @@ a {
     font-family: 'Merriweather', serif;
 }
 
-
-.book {
-    display: inline-flex;
-    margin-left: 10%;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-}
-
-.books {
-    display: inline-flex;
-    margin-left: 20px;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.list {
-    padding: 20px;
-}
-
-
 .main-container {
     display: flex;
     /* justify-content: space-between; */
@@ -63,19 +40,7 @@ a {
    margin-bottom: 30px;
   }
 
-  
-  ul.list {
-    padding: 50px;
-    font-family: 'Lato', 'Merriweather', serif;
-}
-
-li.title {
-    font-size: xx-large;
-
-}
-
-
-  .books-title, .reviews-title {
+.books-title, .reviews-title {
     font-size: 32px;
     border-bottom: 1px solid black;
     text-align: center;

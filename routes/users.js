@@ -6,7 +6,7 @@ const db = require("../db/models");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const { loginUser, logoutUser, requireAuth } = require("../auth");
-const { Review } = require('../db/models');
+const { Review } = require("../db/models");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -131,13 +131,13 @@ router.get(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
 
-    const user = await db.User.findByPk(userId)
+    const user = await db.User.findByPk(userId);
 
     const crypts = await db.Crypt.findAll({
       where: {
         userId,
       },
-      order: [['id']]
+      order: [["id"]],
     });
 
     res.render("user-crypts", { title: "My Crypts", crypts, user });
@@ -148,11 +148,9 @@ router.get(
   "/:id(\\d+)/crypts/:id(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
-
-    const cryptId = parseInt(req.params.id, 10)
+    const cryptId = parseInt(req.params.id, 10);
     const crypt = await db.Crypt.findByPk(cryptId);
     const userId = crypt.userId;
-
 
     const books = await db.CryptJoinBook.findAll({
       where: {
@@ -165,7 +163,6 @@ router.get(
     } else {
       res.render("crypt", { title: crypt.name, crypt });
     }
-
   })
 );
 
@@ -181,20 +178,22 @@ router.get(
   })
 );
 
-router.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
-  userId = parseInt(req.params.id);
-  const reviewBook = await db.Review.findAll({
-    include: db.Book
+router.get(
+  "/:id(\\d+)/reviews",
+  asyncHandler(async (req, res) => {
+    userId = parseInt(req.params.id);
+
+    const reviews = await db.Review.findAll({
+      include: db.Book,
+    });
+
+    const reviews2 = reviews.map((review) => console.log(review.toJSON()));
+
+    const books = reviews.map((review) => console.log(review.Book.toJSON()));
+
+    res.render("reviews", { title: "Reviews", reviews });
   })
-  console.log(reviewBook[0].Books[0].coverArt, "---------------------");
-  const reviews = await db.Review.findAll({
-    where: {
-      userId
-    },
-    // include: [ db.User, db.ReviewsJoinsBooks ]
-  });
-  res.render('reviews', { title: 'Reviews', reviews, reviewBook });
-}));
+);
 
 router.post("/");
 module.exports = router;

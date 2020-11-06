@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     Book.belongsToMany(models.Crypt, columnMapping);
-    Book.belongsToMany(models.Review, columnMappingReview);
+    Book.hasMany(models.Review, { foreignKey: "bookId" });
   };
   return Book;
 };
