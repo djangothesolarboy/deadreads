@@ -1,28 +1,5 @@
-@font-face {
-    font-family: 'Lato', sans-serif;
-    font-family: 'Merriweather', serif;
-    src: url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
-}
-
-h1 {
-    color: #555555;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-}
-
-body {
-    background-color: #F6AA1C;
-    font-family: 'Lato', sans-serif, 'Merriweather', serif;
-
-}
-
-a {
-    font-family: 'Merriweather', serif;
-}
-
 .main-container {
     display: flex;
-    /* justify-content: space-between; */
     justify-content: center;
     flex-direction: column;
     align-content: center;
@@ -147,8 +124,4 @@ a {
     align-self: center;
     padding: 10px;
     margin-right: 10px;
-  }
-
-  .textcontainer {
-    /* align-self: center; */
   }

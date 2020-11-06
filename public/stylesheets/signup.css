@@ -1,7 +1,3 @@
-body {
-    background-color: #f6aa1c;
-}
-
 .form {
     display: flex;
     width: 400px;
@@ -15,6 +11,7 @@ body {
     margin: auto;
     margin-top: 80px;
     border-radius: 2%;
+    margin-bottom: 125px;
 }
 
 .form-field {
