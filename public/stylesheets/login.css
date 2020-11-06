@@ -2,7 +2,7 @@
     display: flex;
     width: 400px;
     justify-items: flex-start;
-    align-items: center;
+    align-self: center;
     flex-direction: column;
     color: #f6aa1c;
     padding: 5px;
@@ -10,33 +10,86 @@
     border: 2px solid #941b0c;
     margin: auto;
     margin-top: 80px;
-    border-radius: 2%;
+    border-radius: 5%;
     margin-bottom: 320px;
 }
 
-.form-field {
+ .form-field {
     display: flex;
-    justify-items: flex-start;
+    justify-items: flex-start; 
     align-items: center;
     flex-direction: column;
     padding: 8px;
-}
+}  
 
-.form-field__button {
+/* .form-field__button {
     border-radius: 2%;
     width: 142px;
     height: 22px;
     margin-bottom: 8px;
     padding-bottom: 2px;
     text-align: center;
-}
+} */
 
-.form-field__button:hover {
-    background-color: #bc3908;
-    color: white;
-}
 
 .errors {
     color: #941b0c;
     text-align: center;
 }
+
+button {
+    border-radius: 5px;
+    width: 116px;
+    height: 48px;
+    background: #220901;
+}
+
+.form-field__button {
+    margin-left: 4px;
+    margin-top: 1px;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    background: #220901;
+    transition: text-shadow 3s;
+}
+        
+.form-field__button:hover {
+    font-weight: 900;
+    color: silver;
+    font-size: x-large;
+    margin-left: 4px;
+    margin-top: 1px;
+    color: silver;
+    animation-name: color-background;
+    animation-duration: 8s;
+        
+    text-shadow: 
+        1px 4px 1px #300000,
+        1px 6px 1px #400000,
+        1px 8px 1px #500000,
+        1px 10px 1px #600000,
+        2px 12px 1px #700000,
+        2px 14px 1px #800000,
+        2px 16px 1px #900000,
+        2px 18px 1px #A00000,
+        3px 20px 1px #B00000,
+        3px 22px 1px #C00000,
+        3px 24px 1px #D00000,
+        3px 26px 1px #E00000,
+        3px 28px 1px #F00000,
+        3px 30px 1px #FA0000,
+        3px 32px 1px #FB0000,
+        4px 34px 1px #FC0000,
+        4px 36px 1px #FD0000,
+        4px 38px 1px #FE0000,
+        4px 40px 2px #FF0000;
+}
+
+@keyframes color-background {
+    0%   {background-color: white;}
+    10%  {background-color: rgb(153, 106, 114);}
+    20%  {background-color: red;}
+    100% {background-color: red;}
+    }

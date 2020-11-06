@@ -125,3 +125,10 @@
     padding: 10px;
     margin-right: 10px;
   }
+
+  button {
+    border-radius: 5px;
+    width: 116px;
+    height: 48px;
+    background: #220901;
+  }
