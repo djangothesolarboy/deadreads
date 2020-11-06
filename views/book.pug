@@ -1,5 +1,9 @@
 extend layout.pug
 
+append head
+  link(rel="stylesheet" href="/stylesheets/books.css")
+
+
 block content
   div.book
     img(src=`${book.coverArt}` width="80px" height="100px")
