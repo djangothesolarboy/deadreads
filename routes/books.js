@@ -13,14 +13,39 @@ router.get(
   })
 );
 
+
 router.get(
   "/:id(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id);
     const book = await Book.findByPk(bookId);
-    res.render("book", { title: `${book.title}`, book });
+    const userId = res.locals.user.dataValues.id;
+    const crypts = await Crypt.findAll({
+      where: {
+        userId
+      }
+    });
+
+    //console.log("LOCALS:", res.locals)
+
+    res.render("book", { title: `${book.title}`, book, crypts });
   })
-);
+  );
+
+router.post("/:id(\\d+)", asyncHandler(async (req, res) => {
+  const userId = res.locals.user.dataValues.id;
+
+  const bookId = parseInt(req.params.id, 10);
+  const { cryptId } = req.body;
+
+  const addBooktoCrypt = await CryptJoinBook.create({
+    bookId,
+    cryptId
+  });
+
+  res.redirect(`/users/${userId}/crypts/${cryptId}`);
+
+}))
 
 module.exports = router;

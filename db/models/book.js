@@ -20,11 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "bookId",
       otherKey: "cryptId",
     };
-    const columnMappingReview = {
-      through: "ReviewJoinBook",
-      foreignKey: "bookId",
-      otherKey: "reviewId",
-    };
 
     Book.belongsToMany(models.Crypt, columnMapping);
     Book.hasMany(models.Review, { foreignKey: "bookId" });

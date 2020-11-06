@@ -166,7 +166,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const cryptId = parseInt(req.params.id, 10);
     const crypt = await db.Crypt.findByPk(cryptId);
-    const userId = crypt.userId;
+    // const userId = crypt.userId;
 
     const books = await db.CryptJoinBook.findAll({
       where: {
@@ -174,8 +174,34 @@ router.get(
       },
     });
 
-    if (books.length > 0) {
-      res.render("crypt", { title: crypt.name, crypt, books });
+    const booksArray = [];
+
+    books.map((book) => {
+      booksArray.push(book.bookId)
+    });
+
+    const displayBooks = await db.Book.findAll({
+      where: {
+        id: booksArray
+      }
+    });
+
+    displayBooks.map((book) => {
+      console.log(book.toJSON());
+    })
+
+    // const displayBooks = await booksArray.forEach((bookId) => {
+    //    db.Book.findAll({
+    //     where: {
+    //       id: bookId
+    //     }
+    //   });
+    // });
+
+    // console.log("DISPLAY BOOKS, BITCH:", displayBooks)
+
+    if (displayBooks.length > 0) {
+      res.render("crypt", { title: crypt.name, crypt, displayBooks });
     } else {
       res.render("crypt", { title: crypt.name, crypt });
     }
