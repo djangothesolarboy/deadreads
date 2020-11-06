@@ -2,12 +2,13 @@ extend layout.pug
 
 append head
   link(rel="stylesheet" href="/stylesheets/books.css")
+  script(src="/javascripts/add-book.js")
 
 
 block content
   div.book
     img(src=`${book.coverArt}` width="80px" height="100px")
-    ul.list
+    ul.list(id=`${book.id}`)
       li.title= book.title
       li by #{book.author}
       li= book.synopsis
@@ -16,8 +17,7 @@ block content
     form(action=`/books/${book.id}` method="post")
       select.cryptSelector(name="cryptSelector")
         option Add to Crypt...
-        option(value="Have Read" id="have-read") Have Read
-        option(value="Want to Read" id="want-to-read") Want to Read
-        option(value="Currently Reading" id="currently-reading") Currently Reading
+        each crypt in crypts
+          option(value=crypt.id class="crypt")= crypt.name
       button(type="submit" id="crypt-submit") Submit
   include footer.pug

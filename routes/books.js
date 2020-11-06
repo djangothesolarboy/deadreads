@@ -20,23 +20,32 @@ router.get(
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id);
     const book = await Book.findByPk(bookId);
+    const userId = res.locals.user.dataValues.id;
+    const crypts = await Crypt.findAll({
+      where: {
+        userId
+      }
+    });
 
-    //let jsonReq = req.toJSON();
+    //console.log("LOCALS:", res.locals)
 
-    // console.log("LOCALS:", res.locals.user.dataValues.id)
-
-    res.render("book", { title: `${book.title}`, book });
+    res.render("book", { title: `${book.title}`, book, crypts });
   })
   );
 
-router.post("/:id(d\\+)", asyncHandler(async (req, res) => {
-  //const crypt
-  let userId = res.locals.user.dataValues.id;
-  const { username } = req.body;
+router.post("/:id(\\d+)", asyncHandler(async (req, res) => {
+  const userId = res.locals.user.dataValues.id;
 
-  console.log(userId, "GINORMOUASDLFJSALDKFJ;OWEIJFAS.SDKLFJ;------------")
+  const bookId = parseInt(req.params.id, 10);
+  const { cryptId } = req.body;
 
-  res.redirect('/');
+  const addBooktoCrypt = await CryptJoinBook.create({
+    bookId,
+    cryptId
+  });
+
+  res.redirect(`/users/${userId}/crypts/${cryptId}`);
+
 }))
 
 module.exports = router;

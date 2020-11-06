@@ -16,7 +16,8 @@ module.exports = {
       bookId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: "Books" }
+        references: { model: "Books" },
+        unique: true
       },
       createdAt: {
         allowNull: false,
