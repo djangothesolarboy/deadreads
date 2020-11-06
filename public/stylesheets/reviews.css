@@ -1,4 +1,5 @@
-.reviews-container {
+
+ .reviews-container {
     display: flex;
     justify-items: center;
     align-items: center;
@@ -16,9 +17,8 @@
     border: 5px solid black;
     width: 600px;
     flex-direction: column;
-    /* flex-direction: column; */
+    flex-direction: column;
 }
-
 .review {
     display: flex;
     background-color: greenyellow;

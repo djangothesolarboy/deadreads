@@ -7,10 +7,11 @@ block content
   ul
     each book in books
       div.books
-        a(href=`/books/${book.id}`) 
+        a(href=`/books/${book.id}`)
           img(src=`${book.coverArt}` width="80px" height="100px")
         //- ul.list
         //-   li= book.title
         //- li by #{book.author}
         //-   li= book.synopsis
         //-   li published #{book.publicationDate}
+  include footer.pug

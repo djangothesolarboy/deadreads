@@ -11,8 +11,6 @@ router.get(
       include: [User, Book],
     });
 
-    console.log(reviews);
-
     const books = await Book.findAll({ limit: 5 });
 
     res.render("index", { title: "deadreads", reviews, books });

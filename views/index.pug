@@ -2,7 +2,7 @@ extends layout.pug
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/indexstyling.css")
+  link(rel="stylesheet" href="/stylesheets/index.css")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
@@ -26,16 +26,16 @@ block content
     .reviews-container
       p.reviews-title Recent Reviews
       div.nested-reviews-container
-        if reviews
+        if reviews && user
           each review in reviews
             div.reviews
               div.review-container
                 div.imgcontainer
                   a(href=`/books/${review.Book.id}` class="reviewimglink"): img(src=review.Book.coverArt class="review-image")
                 div.textcontainer
-                  div.username= user.fullName
-                  div.review= review.review
+                  if user
+                    div.username= user.fullName
+                    div.review= review.review
       div.reviewlink-container
         a(href="/reviews" class="reviewlink") Browse Reviews
-
-  include footer.pug
+  include footer

@@ -7,6 +7,7 @@ block content
     ul.reviews-container
         .review-container
             each review in reviews
-                img(src=`/${review.Book.coverArt}` class='review-cover')
+                a(href=`/books/${review.Book.id}`): img(src=`/${review.Book.coverArt}` class='review-cover')
                 a(href="/users" class="review-user") User
                 li.review= review.review
+    include footer.pug

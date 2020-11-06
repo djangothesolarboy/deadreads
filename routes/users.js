@@ -13,6 +13,53 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
+// GET users login page
+router.get("/login", csrfProtection, (req, res) => {
+  res.render("log-in-form", { title: "Login", csrfToken: req.csrfToken() });
+});
+
+// POST users login
+router.post(
+  "/login",
+  loginValidators,
+  asyncHandler(async (req, res) => {
+    const { username, password } = req.body;
+
+    let errors = [];
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      const user = await db.User.findOne({
+        where: {
+          username,
+        },
+      });
+      if (user !== null) {
+        const passwordMatched = await bcrypt.compare(
+          password,
+          user.hashedPassword.toString()
+        );
+        if (passwordMatched) {
+          loginUser(req, res, user);
+          return req.session.save(() => {
+            res.redirect("/");
+          });
+        }
+      }
+      errors.push("Login failed for the provided username and password.");
+    } else {
+      errors = validatorErrors.array().map((error) => error.msg);
+    }
+    res.render("log-in-form", {
+      title: "Login",
+      username,
+      errors,
+    });
+  })
+);
+
+// GET users sign-up page
 router.get("/sign-up", csrfProtection, (req, res) => {
   const user = db.User.build();
   res.render("sign-up-form", {
@@ -22,13 +69,13 @@ router.get("/sign-up", csrfProtection, (req, res) => {
   });
 });
 
+// POST user sign-up
 router.post(
   "/sign-up",
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res) => {
     const { username, email, birthdate, gender, fullName, password } = req.body;
-    console.log(username, email, birthdate);
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await db.User.create({
@@ -73,58 +120,26 @@ router.post(
   })
 );
 
-router.get("/login", csrfProtection, (req, res) => {
-  res.render("log-in-form", { title: "Login", csrfToken: req.csrfToken() });
-});
-
-router.post(
-  "/login",
-  // csrfProtection,
-  loginValidators,
+// GET a user
+router.get(
+  "/:id(\\d+)",
+  requireAuth,
   asyncHandler(async (req, res) => {
-    const { username, password } = req.body;
-    console.log(username, password);
+    const userId = parseInt(req.params.id, 10);
 
-    let errors = [];
+    const user = await db.User.findByPk(userId);
 
-    const validatorErrors = validationResult(req);
-
-    if (validatorErrors.isEmpty()) {
-      const user = await db.User.findOne({
-        where: {
-          username,
-        },
-      });
-      if (user !== null) {
-        const passwordMatched = await bcrypt.compare(
-          password,
-          user.hashedPassword.toString()
-        );
-        if (passwordMatched) {
-          loginUser(req, res, user);
-          return req.session.save(() => {
-            res.redirect("/");
-          });
-        }
-      }
-      errors.push("Login failed for the provided username and password.");
-    } else {
-      errors = validatorErrors.array().map((error) => error.msg);
-    }
-    res.render("log-in-form", {
-      title: "Login",
-      username,
-      errors,
-      // csrfToken: req.csrfToken(),
-    });
+    res.render("user-page", { title: "My Profile", user });
   })
 );
 
-router.post("/logout", requireAuth, (req, res) => {
+// GET users logout
+router.get("/logout", requireAuth, (req, res) => {
   logoutUser(req, res);
   res.redirect("/");
 });
 
+// GET all of a users crypts
 router.get(
   "/:id(\\d+)/crypts",
   requireAuth,
@@ -144,6 +159,7 @@ router.get(
   })
 );
 
+// GET a users specified crypt
 router.get(
   "/:id(\\d+)/crypts/:id(\\d+)",
   requireAuth,
@@ -166,18 +182,7 @@ router.get(
   })
 );
 
-router.get(
-  "/:id(\\d+)",
-  requireAuth,
-  asyncHandler(async (req, res) => {
-    const userId = parseInt(req.params.id, 10);
-
-    const user = await db.User.findByPk(userId);
-
-    res.render("user-page", { title: "My Profile", user });
-  })
-);
-
+// GET a users reviews
 router.get(
   "/:id(\\d+)/reviews",
   asyncHandler(async (req, res) => {
@@ -187,13 +192,12 @@ router.get(
       include: db.Book,
     });
 
-    const reviews2 = reviews.map((review) => console.log(review.toJSON()));
+    // const reviews2 = reviews.map((review) => console.log(review.toJSON()));
 
-    const books = reviews.map((review) => console.log(review.Book.toJSON()));
+    // const books = reviews.map((review) => console.log(review.Book.toJSON()));
 
     res.render("reviews", { title: "Reviews", reviews });
   })
 );
 
-router.post("/");
 module.exports = router;
