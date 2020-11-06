@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -12,26 +12,31 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-   return queryInterface.bulkInsert('Reviews', [
-    {
-      review: 'gsfdgsdfgsdfgsfgsfgsdfsfsfdggsdfgsdfgsdfgsfg',
-      userId: 2,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      review: 'gsfdgsdfgsdfgsfgsfgsdfsfsfdggsdfgsdfgsdfgsfgsdfgsdfgsfdgsdfgsdfgsdfgsdfgjneruigneiurgiuwebripubgweipubrpiuqpriuqpiubfiuqberwiubaeiufbviesubrpuiweruber',
-      userId: 2,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, 
-    {
-      review: 'yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet',
-      userId: 2,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }],
-    {});
+    return queryInterface.bulkInsert(
+      "Reviews",
+      [
+        {
+          review: "gsfdgsdfgsdfgsfgsfgsdfsfsfdggsdfgsdfgsdfgsfg",
+          userId: 7,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          review:
+            "gsfdgsdfgsdfgsfgsfgsdfsfsfdggsdfgsdfgsdfgsfgsdfgsdfgsfdgsdfgsdfgsdfgsdfgjneruigneiurgiuwebripubgweipubrpiuqpriuqpiubfiuqberwiubaeiufbviesubrpuiweruber",
+          userId: 7,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          review: "yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet",
+          userId: 7,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
   },
 
   down: (queryInterface, Sequelize) => {
@@ -42,6 +47,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-   return queryInterface.bulkDelete('Reviews', null, {});
-  }
+    return queryInterface.bulkDelete("Reviews", null, {});
+  },
 };
