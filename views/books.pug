@@ -1,5 +1,8 @@
 extends layout.pug
 
+append head
+  link(rel="stylesheet" href="/stylesheets/books.css")
+
 block content
   ul
     each book in books
@@ -8,6 +11,6 @@ block content
           img(src=`${book.coverArt}` width="80px" height="100px")
         //- ul.list
         //-   li= book.title
-        //-   li by #{book.author}
+        //- li by #{book.author}
         //-   li= book.synopsis
         //-   li published #{book.publicationDate}

@@ -22,7 +22,8 @@ html
           div(class='crypts')
             a(href='/crypts') C
           div(class='userprofile')
-            a(href=`/users/${user.id}`) U
+            if user
+              a(href=`/users/${user.id}`) U
 
 
       div

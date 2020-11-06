@@ -4,3 +4,35 @@ table {
   border-collapse: collapse;
   border: 3px solid purple;
 }
+
+
+.book {
+  display: inline-flex;
+  margin-left: 10%;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.books {
+  display: inline-flex;
+  margin-left: 20px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.list {
+  padding: 20px;
+
+}
+ul.list {
+  padding: 50px;
+  font-family: 'Lato', 'Merriweather', serif;
+}
+
+li.title {
+  font-size: xx-large;
+
+}
