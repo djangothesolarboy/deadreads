@@ -168,7 +168,7 @@ router.get(
     const crypt = await db.Crypt.findByPk(cryptId);
     const userId = crypt.userId;
 
-    const books = await db.CryptJoinBook.findAll({
+    const books = await db.CryptJoinBook.findOne({
       where: {
         cryptId,
       },

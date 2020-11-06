@@ -13,14 +13,30 @@ router.get(
   })
 );
 
+
 router.get(
   "/:id(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id);
     const book = await Book.findByPk(bookId);
+
+    //let jsonReq = req.toJSON();
+
+    // console.log("LOCALS:", res.locals.user.dataValues.id)
+
     res.render("book", { title: `${book.title}`, book });
   })
-);
+  );
+
+router.post("/:id(d\\+)", asyncHandler(async (req, res) => {
+  //const crypt
+  let userId = res.locals.user.dataValues.id;
+  const { username } = req.body;
+
+  console.log(userId, "GINORMOUASDLFJSALDKFJ;OWEIJFAS.SDKLFJ;------------")
+
+  res.redirect('/');
+}))
 
 module.exports = router;
