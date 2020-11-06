@@ -1,13 +1,18 @@
 extends layout.pug
 
-block content
+append head
 
+  link(rel='stylesheet' href="/stylesheets/crypt-book.css")
+
+
+block content
+  .main-book-container
     div.books-container
-      p.books-title Books
+      p.books-title=title
       div.nested-books-container
         if displayBooks
           each book in displayBooks
-            div.book
+            div.books
               a(href=`/books/${book.id}` class="bookimglink"): img(src=`/books/${book.coverArt}` class="book-image")
 
-    include footer.pug
+  include footer.pug
