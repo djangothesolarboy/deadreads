@@ -1,18 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const { asyncHandler } = require("./utils");
-const { User, Review, ReviewJoinBook, Book } = require("../db/models");
+const { User, Review, Book } = require("../db/models");
 
 /* GET home page. */
 router.get(
   "/",
   asyncHandler(async (req, res, next) => {
     const reviews = await Review.findAll({
-      include: {
-        model: User,
-        required: true,
-      },
+      include: [User, Book],
     });
+
+    console.log(reviews);
 
     const books = await Book.findAll({ limit: 5 });
 

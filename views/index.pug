@@ -26,10 +26,15 @@ block content
     .reviews-container
       p.reviews-title Recent Reviews
       div.nested-reviews-container
-        if review
+        if reviews
           each review in reviews
-            li= user.fullName
-            li= review.text
+            div.reviews
+              div.review-container
+                div.imgcontainer
+                  a(href=`/books/${review.Book.id}` class="reviewimglink"): img(src=review.Book.coverArt class="review-image")
+                div.textcontainer
+                  div.username= user.fullName
+                  div.review= review.review
       div.reviewlink-container
         a(href="/reviews" class="reviewlink") Browse Reviews
 

@@ -69,6 +69,7 @@ a {
   }
 
   .nested-books-container {
+    display: inline-block;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,6 +83,7 @@ a {
 
   .books {
     box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
+    height: 240px;
   }
 
   .reviews-container {
@@ -96,4 +98,57 @@ a {
 
   .reviewlink-container {
     text-align: center;
+  }
+
+  .reviews {
+    border: 1px solid gray;
+    margin: 15px;
+    height: 200px;
+    width: 400px;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
+    background-color: rgb(223, 196, 151);
+    border-radius: 50px;
+  }
+
+  .username {
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid gray;
+    align-self: flex-start;
+    width: 80px;
+  }
+
+  .review {
+    text-align: center;
+    align-self: flex-end;
+  }
+
+  .review-container {
+    display: flex;
+    justify-content: space-around;
+    height: 200px;
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .review-image {
+    max-width: 125px;
+    max-height: 120px;
+    object-fit: fill;
+  }
+
+  .reviewimglink {
+    height: 0;
+    width: 0;
+  }
+
+  .imgcontainer {
+    align-self: center;
+    padding: 10px;
+    margin-right: 10px;
+  }
+
+  .textcontainer {
+    /* align-self: center; */
   }
