@@ -182,39 +182,16 @@ router.get(
   "/:id(\\d+)/reviews",
   asyncHandler(async (req, res) => {
     userId = parseInt(req.params.id);
-    const reviewBook = await db.Review.findAll({
+
+    const reviews = await db.Review.findAll({
       include: db.Book,
     });
 
-    // const book = await db.Book.findOne({
-    //   include: {
-    //     model: Review,
-    //     through: db.ReviewJoinBook,
-    //   },
-    //   where: {},
-    // });
+    const reviews2 = reviews.map((review) => console.log(review.toJSON()));
 
-    // console.log(book);
+    const books = reviews.map((review) => console.log(review.Book.toJSON()));
 
-    // console.log(reviewBook.toJSON());
-    console.log(reviewBook);
-
-    const jsonReview = reviewBook.map((review) => review.toJSON());
-
-    console.log("JSON REVIEW", jsonReview);
-
-    const books = jsonReview.map((review) => review.Books);
-
-    console.log("BOOOOOK", books);
-
-    // console.log(reviewBook.Books[0].coverArt);
-    // const reviews = await db.Review.findAll({
-    //   where: {
-    //     userId,
-    //   },
-    // include: [ db.User, db.ReviewsJoinsBooks ]
-    // });
-    res.render("reviews", { title: "Reviews", jsonReview, books });
+    res.render("reviews", { title: "Reviews", reviews });
   })
 );
 

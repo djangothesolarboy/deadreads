@@ -6,7 +6,7 @@ append head
 block content
     ul.reviews-container
         .review-container
-            each review in jsonReview
-                img(src=`/${books[0][0].coverArt}` class='review-cover')
+            each review in reviews
+                img(src=`/${review.Book.coverArt}` class='review-cover')
                 a(href="/users" class="review-user") User
                 li.review= review.review

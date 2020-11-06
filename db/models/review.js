@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       review: DataTypes.TEXT,
       userId: DataTypes.INTEGER,
+      bookId: DataTypes.INTEGER,
     },
     {}
   );
@@ -17,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "bookId",
       foreignKey: "reviewId",
     };
-    Review.belongsToMany(models.Book, columnMapping);
+    Review.belongsTo(models.Book, { foreignKey: "bookId" });
     Review.belongsTo(models.User, { foreignKey: "userId" });
   };
   return Review;

@@ -7,30 +7,25 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+      */
     return queryInterface.bulkInsert(
-      "Reviews",
+      "Crypts",
       [
         {
-          review: "gsfdgsdfgsdfgsfgsfgsdfsfsfdggsdfgsdfgsdfgsfg",
-          userId: 7,
+          name: "Have Read",
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          review:
-            "gsfdgsdfgsdfgsfgsfgsdfsfsfdggsdfgsdfgsdfgsfgsdfgsdfgsfdgsdfgsdfgsdfgsdfgjneruigneiurgiuwebripubgweipubrpiuqpriuqpiubfiuqberwiubaeiufbviesubrpuiweruber",
-          userId: 7,
+          name: "Want to Read",
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          review: "yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet",
-          userId: 7,
+          name: "Currently Reading",
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -45,8 +40,7 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
-    return queryInterface.bulkDelete("Reviews", null, {});
+      */
+    return queryInterface.bulkDelete("Crypts", null, {});
   },
 };
