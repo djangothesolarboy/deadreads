@@ -1,29 +1,39 @@
 window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("crypt-submit").addEventListener("click", e => {
-        e.preventDefault();
+  const cryptSubmit = document.getElementById("crypt-submit");
+  const crypts = document.querySelectorAll(".crypt");
+  const book = document.querySelector(".list");
+  const errorDiv = document.querySelector(".errors");
 
+  const addBook = async () => {
+    const bookId = book.attributes.id.value;
+    const cryptsArray = Array.from(crypts);
 
-        const addBook = async () => {
-            const book = document.querySelector('.list');
-            const bookId = book.attributes.id.value;
-            const crypts = document.querySelectorAll('.crypt');
-            const cryptsArray = Array.from(crypts);
+    const selectedCrypt = cryptsArray.filter((crypt) => {
+      return crypt.selected;
+    });
 
-            const selectedCrypt = cryptsArray.filter((crypt) => {
-                return crypt.selected
-            })
+    const cryptId = selectedCrypt[0].value;
 
-            const cryptId = selectedCrypt[0].index;
+    const result = await fetch(`/api/books/${bookId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cryptId, bookId }),
+    });
+    const res = await result.json();
 
-            const result = await fetch(`/books/${bookId}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({cryptId})
-            });
-        }
+    console.log(res);
 
-        addBook()
-    })
-})
+    if (res === true) {
+      errorDiv.innerHTML = "Book added!";
+    } else {
+      errorDiv.innerHTML = res;
+    }
+  };
+
+  cryptSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    addBook();
+  });
+});

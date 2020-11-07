@@ -13,7 +13,6 @@ router.get(
   })
 );
 
-
 router.get(
   "/:id(\\d+)",
   requireAuth,
@@ -23,29 +22,52 @@ router.get(
     const userId = res.locals.user.dataValues.id;
     const crypts = await Crypt.findAll({
       where: {
-        userId
-      }
+        userId,
+      },
     });
 
+    // crypts.map((crypt) => console.log(crypt.toJSON()));
     //console.log("LOCALS:", res.locals)
 
     res.render("book", { title: `${book.title}`, book, crypts });
   })
-  );
+);
 
-router.post("/:id(\\d+)", asyncHandler(async (req, res) => {
-  const userId = res.locals.user.dataValues.id;
+router.post(
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    const userId = res.locals.user.dataValues.id;
 
-  const bookId = parseInt(req.params.id, 10);
-  const { cryptId } = req.body;
+    const bookId = parseInt(req.params.id, 10);
+    const { cryptId } = req.body;
 
-  const addBooktoCrypt = await CryptJoinBook.create({
-    bookId,
-    cryptId
-  });
+    console.log(bookId, cryptId);
 
-  res.redirect(`/users/${userId}/crypts/${cryptId}`);
+    const bookCrypt = await CryptJoinBook.findOne({
+      where: {
+        cryptId: cryptId,
+        bookId: bookId,
+      },
+    });
 
-}))
+    console.log(bookCrypt);
+
+    // bookCrypt.map((book) => console.log(book.toJSON()));
+
+    if (!bookCrypt) {
+      const addBooktoCrypt = await CryptJoinBook.create({
+        bookId,
+        cryptId,
+      });
+    } else {
+      const errors = { errors: "You already have this book in your crypt" };
+      // res.json(errors);
+    }
+
+    res.render("book", { title: `${book.title}`, book, crypts });
+
+    // res.redirect(`/users/${userId}/crypts/${cryptId}`);
+  })
+);
 
 module.exports = router;
