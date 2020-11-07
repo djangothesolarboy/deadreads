@@ -14,6 +14,7 @@ block content
       li= book.synopsis
       li published #{book.publicationDate}
   div
+    div.errors
     form(action=`/books/${book.id}` method="post")
       select.cryptSelector(name="cryptSelector")
         option Add to Crypt...
