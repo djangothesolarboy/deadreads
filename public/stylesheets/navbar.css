@@ -5,6 +5,8 @@
 
 .mainnav {
   background-color: #BC3908;
+  position: sticky;
+  top: 0px;
 }
 
 .navbar {
@@ -12,8 +14,6 @@
   justify-content: space-around;
   margin: 0 auto;
   border-bottom: 1px solid grey;
-  position: sticky;
-  top: 0px;
 }
 
 .navsearch {
@@ -60,26 +60,9 @@ padding: 0 10px;
 
 .navlinks {
   display: flex;
-  padding: 10px;
-  margin: 0 auto;
+  padding: 20px;
   justify-content: center;
-
 }
-
-.navlinks li {
-  display: inline-block;
-  padding: 0 30px;
-}
-
-.navlinks li a {
-  width: 100%;
-  text-decoration: none;
-}
-
-.navlinks li a:hover {
-  border-bottom: solid 1px black;
-}
-
 
 .searchinput {
   padding: 10px;
@@ -114,21 +97,103 @@ padding: 0 10px;
 }
 
 .tags, .crypts, .userprofile {
-  padding-top: 8px;
-  width: 35px;
-  height: 35px;
+  font-family: Lato;
+  padding-top: 13px;
+  width: 45px;
+  height: 45px;
   background-color: #220901;
   margin: 0 10px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   text-align: center;
+  transition: text-shadow 3s;
 }
 
+.crypts:hover, .userprofile:hover {
+  padding-top: 0px;
+  font-family: Gypsy Curse;
+  font-size: 37px;
+  border: 1px solid black;
+  border-radius: 20px;
+  color: silver;
+  animation-name: color-background;
+  animation-duration: 8s;
+  transition: text-shadow 3s;
+        
+  text-shadow: 
+    13px 30px 1px black,
+    14px 34px 1px #FC0000,
+    15px 36px 1px #FD0000,
+    16px 38px 1px #FE0000,
+    16px 40px 2px #FF0000, 
+    16px 42px 2px #FF0000, 
+    16px 44px 2px #FF0000, 
+    17px 46px 3px #FF0000; 
+}
+
+.navlinks li {
+  margin-left: 50px;
+  display: inline-flex;
+  border-radius: 50px;
+  width: 106px;
+  height: 40px;
+  background: #220901;
+  transition: text-shadow 3s;
+}
+
+.navlinks li.center-circle, .navlinks li.center-circle>a {
+  color: #621708;
+  background: #F6AA1C;
+  border: 1px solid #220901;
+  border-radius: 50px;
+  font-weight: 900;
+}
+
+.navlinks li a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%; 
+  text-decoration: none;
+  transition: text-shadow 3s;
+}
+
+.navlinks li a:hover {
+  font-family: Gypsy Curse;
+  font-size: 40px;
+  border: 1px solid black;
+  border-radius: 20px;
+  color: silver;
+  animation-name: color-background;
+  animation-duration: 8s;
+  transition: text-shadow 3s;
+        
+  text-shadow: 
+    13px 30px 1px black,
+    14px 34px 1px #FC0000,
+    15px 36px 1px #FD0000,
+    16px 38px 1px #FE0000,
+    16px 40px 2px #FF0000, 
+    16px 42px 2px #FF0000, 
+    16px 44px 2px #FF0000, 
+    17px 46px 3px #FF0000; 
+}
+
+@keyframes color-background {
+    0%   {background-color: white;}
+    10%  {background-color: rgb(153, 106, 114);}
+    20%  {background-color: red;}
+    100% {background-color: red;}
+    }
+
+
+
 /* .logout {
-display: inline-block;
+  display: inline-block;
 }
 
 .login {
-display: inline-block;
-}
+  display: inline-block;
+}  */
