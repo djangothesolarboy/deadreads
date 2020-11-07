@@ -1,10 +1,24 @@
-table {
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-  border: 3px solid purple;
+.books-title, .reviews-title {
+  font-size: 32px;
+  border-bottom: 1px solid black;
+  text-align: center;
 }
 
+.books-container {
+  flex-direction: row;
+  flex-grow: 1;
+  background-color: rgb(210, 180, 130);
+  padding: 15px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1)
+}
+
+.nested-books-container {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .book {
   display: inline-flex;
@@ -16,23 +30,8 @@ table {
 
 .books {
   display: inline-flex;
-  margin-left: 20px;
-  height: 200px;
+  margin: 25px;
   justify-content: center;
   align-items: center;
 }
 
-
-.list {
-  padding: 20px;
-
-}
-ul.list {
-  padding: 50px;
-  font-family: 'Lato', 'Merriweather', serif;
-}
-
-li.title {
-  font-size: xx-large;
-
-}
