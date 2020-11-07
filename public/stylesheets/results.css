@@ -1,0 +1,56 @@
+.books-title, .reviews-title {
+  font-size: 32px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.book-image {
+  max-width: 180px;
+  max-height: 240px;
+  object-fit: fill;
+}
+
+.bookimglink {
+  height: 0;
+  width: 0;
+}
+
+.books-container {
+  max-width: 900px;
+  width: 900px;
+  flex-direction: row;
+  flex-grow: 1;
+  background-color: rgb(210, 180, 130);
+  padding: 15px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
+  margin-top: 50px;
+  margin-bottom: 400px;
+}
+
+.nested-books-container {
+  /* display: inline-block; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.booklink-container {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.books {
+  margin: 10px 5px;
+  box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
+  height: 240px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,16 @@
+extends layout
+
+append head
+  link(rel="stylesheet" href="/stylesheets/results.css")
+
+block content
+
+  div.flex-container
+    div.books-container
+        p.books-title Results for "#{searchTerm}"
+          div.nested-books-container
+            if books
+              each book in books
+                div.books
+                  a(href=`/books/${book.id}` class="bookimglink"): img(src=book.coverArt class="book-image")
+  include footer

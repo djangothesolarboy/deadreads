@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 const { requireAuth } = require("../auth");
 const { asyncHandler } = require("./utils");
@@ -67,6 +69,28 @@ router.post(
     res.render("book", { title: `${book.title}`, book, crypts });
 
     // res.redirect(`/users/${userId}/crypts/${cryptId}`);
+  })
+);
+
+router.get(
+  "/results",
+  asyncHandler(async (req, res) => {
+    const searchTerm = req.query.searchTerm;
+
+    console.log(searchTerm);
+
+    const books = await Book.findAll({
+      where: {
+        [Op.or]: [
+          { title: { [Op.iLike]: `%${searchTerm}%` } },
+          { author: { [Op.iLike]: `%${searchTerm}%` } },
+        ],
+      },
+    });
+
+    console.log(books);
+
+    res.render("results", { title: "Search Results", books, searchTerm });
   })
 );
 

@@ -57,7 +57,7 @@ app.use("/api", apiRouter);
 // catch 404 and forward to error handler
 app.use(create404);
 app.use(error404Handler);
-
+app.use(errorLogger);
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
