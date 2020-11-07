@@ -7,12 +7,12 @@ append head
 
 block content
   div.book
-    img(src=`${book.coverArt}` width="80px" height="100px")
+    img(src=`${book.coverArt}` width="160px" height="200px")
     ul.list(id=`${book.id}`)
       li.title= book.title
-      li by #{book.author}
-      li= book.synopsis
-      li published #{book.publicationDate}
+      li.author by #{book.author}
+      li.synopsis= book.synopsis
+      li.published published #{book.publicationDate}
   div
     div.errors
     form(action=`/books/${book.id}` method="post")
