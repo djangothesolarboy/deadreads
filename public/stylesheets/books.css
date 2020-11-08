@@ -15,7 +15,8 @@
   background-color: rgb(210, 180, 130);
   padding: 15px;
   border-radius: 25px;
-  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1)
+  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
+  margin-bottom: 50px;
 }
 
 .nested-books-container {
@@ -183,4 +184,17 @@ li.published {
 
 .hidden {
   display: none;
+}
+
+.textcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-area {
+  margin-bottom: 20px;
+  height: 180px;
+  width: 380px;
 }

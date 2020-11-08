@@ -36,10 +36,4 @@ block content
     .add-new-review
       button.add-review Add review
 
-    ul.list(id=`${book.id}` style="list-style-type:none;")
-      li.title= book.title
-      li.author by #{book.author}
-      li.synopsis= book.synopsis
-      li.published published #{book.publicationDate}
-
   include footer.pug

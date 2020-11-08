@@ -1,0 +1,20 @@
+extends layout
+
+append head
+  link(rel="stylesheet" href="/stylesheets/review-page.css")
+
+block content
+
+  .new-container
+    .reviews-container
+      p.reviews-title Recent Reviews
+      div.nested-reviews-container
+        if reviews && user
+          each review in reviews
+            div.reviews
+              div.review-container
+                div.imgcontainer
+                  a(href=`/books/${review.Book.id}` class="reviewimglink"): img(src=review.Book.coverArt class="review-image")
+                div.textcontainer
+                  div.username= review.User.fullName
+                  div.review= review.review
