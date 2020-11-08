@@ -20,6 +20,15 @@ table {
   box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
   margin-bottom: 400px;
   height: auto;
+  margin-right: 180px;
+}
+
+.review-text {
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  width: 200px;
+  text-align: center;
 }
 
 .synopsis {
@@ -138,4 +147,8 @@ li.title {
 .text-area {
   columns: 200px;
   width: 200px;
+}
+
+.hidden {
+  display: none;
 }

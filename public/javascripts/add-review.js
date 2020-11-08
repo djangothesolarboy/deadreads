@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   const reviewArea = document.querySelector(".textcontainer");
 
   let count = 0;
+
   addButton.addEventListener("click", (e) => {
     if (count === 0) {
       const textArea = document.createElement("textarea");
@@ -39,26 +40,41 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
       const res = await result.json();
 
-      console.log(res);
+      // console.log(res);
 
       if (res === true) {
         const results = await fetch(`/api/books/${bookId}`);
 
         const newRes = await results.json();
 
-       const user =  newRes.User
+        const textArea = document.querySelector(".text-area");
+        const newButton = document.querySelector(".add-review");
 
-       console.log(user)
+        textArea.classList.add("hidden");
+        newButton.classList.add("hidden");
 
-        const review = newRes.Reviews[newRes.Reviews.length - 1];
+        count = 0;
+        // const user = newRes.User;
 
-       const usernameDiv =  document.createElement("div")
-       usernameDiv.classList.add("username")
-       usernameDiv.innerHTML =
-       const reviewDiv = document.createElement("div")
-       reviewDiv.classList.add("review")
+        // console.log(newRes);
 
-        console.log(review);
+        // console.log(newRes);
+
+        const review = newRes.book.Reviews[newRes.book.Reviews.length - 1];
+
+        const usernameDiv = document.createElement("div");
+        usernameDiv.classList.add("username");
+        usernameDiv.innerHTML = newRes.user.username;
+        const reviewDiv = document.createElement("div");
+        reviewDiv.classList.add("review");
+        reviewDiv.innerHTML = review.review;
+
+        const textContain = document.querySelector(".textcontainer");
+
+        textContain.appendChild(usernameDiv);
+        textContain.appendChild(reviewDiv);
+
+        console.log(textArea);
       }
     }
   });

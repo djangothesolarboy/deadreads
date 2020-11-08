@@ -4,7 +4,7 @@ const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
 const { requireAuth } = require("../auth");
-const { asyncHandler } = require("./utils");
+const { asyncHandler, userValidators } = require("./utils");
 const { Crypt, User, Book, CryptJoinBook, Review } = require("../db/models");
 
 router.get(
@@ -15,12 +15,20 @@ router.get(
     const bookId = parseInt(req.params.id);
 
     const book = await Book.findByPk(bookId, {
-      include: [Review, User],
+      include: Review,
     });
 
-    console.log(book);
+    // console.log(book.toJSON());
 
-    res.json(book);
+    const userId = book.Reviews[book.Reviews.length - 1].userId;
+
+    // console.log(userId);
+
+    const user = await User.findByPk(userId);
+
+    const reviewObj = { user, book };
+
+    res.json(reviewObj);
   })
 );
 
@@ -29,7 +37,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const { bookId, cryptId } = req.body;
 
-    console.log(bookId, cryptId);
+    // console.log(bookId, cryptId);
 
     const exists = await CryptJoinBook.findOne({
       where: {

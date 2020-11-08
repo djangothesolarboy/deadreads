@@ -26,6 +26,7 @@ block content
         li by #{book.author}
         div.synopsis= `- ${book.synopsis}`
         li published #{book.publicationDate}
+    .review-text Reviews
     .review-container
       div.textcontainer
         for review in reviews

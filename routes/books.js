@@ -36,7 +36,7 @@ router.get(
       include: User,
     });
 
-    reviews.map((review) => console.log(review.toJSON()));
+    // reviews.map((review) => console.log(review.toJSON()));
 
     // crypts.map((crypt) => console.log(crypt.toJSON()));
     //console.log("LOCALS:", res.locals)
@@ -66,7 +66,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const searchTerm = req.query.searchTerm;
 
-    console.log(searchTerm);
+    // console.log(searchTerm);
 
     const books = await Book.findAll({
       where: {
@@ -77,7 +77,7 @@ router.get(
       },
     });
 
-    console.log(books);
+    // console.log(books);
 
     res.render("results", { title: "Search Results", books, searchTerm });
   })
