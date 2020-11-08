@@ -8,7 +8,7 @@ router.get(
   "/",
   asyncHandler(async (req, res, next) => {
     const reviews = await Review.findAll({
-      include: [User, Book],
+      include: [User, Book ],
     });
 
     const books = await Book.findAll({ limit: 5 });

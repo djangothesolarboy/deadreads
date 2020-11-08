@@ -8,7 +8,8 @@ append head
 block content
   div.book
     div.container
-      img(src=`${book.coverArt}` width="80px" height="100px")
+      img(src=`${book.coverArt}` width="160px" height="200px")
+
       div.form
         form(action=`/books/${book.id}` method="post")
           select.cryptSelector(name="cryptSelector")
@@ -19,10 +20,11 @@ block content
         button(type="submit" id="crypt-submit") Submit
       div.errors
       div.success
-    ul.list(id=`${book.id}`)
-      li.title= book.title
-      li by #{book.author}
-      li= book.synopsis
-      li published #{book.publicationDate}
 
+    ul.list(id=`${book.id}` style="list-style-type:none;")
+      li.title= book.title
+      li.author by #{book.author}
+      li.synopsis= book.synopsis
+      li.published published #{book.publicationDate}
+  
   include footer.pug
