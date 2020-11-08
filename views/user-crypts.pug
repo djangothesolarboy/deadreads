@@ -1,16 +1,14 @@
 extends layout.pug
 
-block content
+append head
 
-    table
-        thead
-            tr
-                th Read
-                th Want to Read
-                th Currently Reading
-        tbody
-            tr
-                td: a(href=`/users/${user.id}/crypts/${crypts[0].id}`)= crypts[0].name
-                td: a(href=`/users/${user.id}/crypts/${crypts[1].id}`)= crypts[1].name
-                td: a(href=`/users/${user.id}/crypts/${crypts[2].id}`)= crypts[2].name
-    include footer.pug
+    link(rel='stylesheet' href="/stylesheets/user-crypts.css")
+
+block content
+  div.crypts-container
+    div.have
+      a(href=`/users/${user.id}/crypts/${crypts[0].id}`)= crypts[0].name
+    div.want
+      a(href=`/users/${user.id}/crypts/${crypts[1].id}`)= crypts[1].name
+    div.current
+      a(href=`/users/${user.id}/crypts/${crypts[2].id}`)= crypts[2].name
