@@ -33,9 +33,8 @@ block content
                 div.imgcontainer
                   a(href=`/books/${review.Book.id}` class="reviewimglink"): img(src=review.Book.coverArt class="review-image")
                 div.textcontainer
-                  if user
-                    div.username= user.fullName
-                    div.review= review.review
+                  div.username= review.User.fullName
+                  div.review= review.review
       div.reviewlink-container
         if user
           a(href=`/users/${user.id}/reviews` class="reviewlink") Browse Reviews
