@@ -4,10 +4,10 @@
 
 ### [Table Of Contents]:
 - [Description](https://github.com/djangothesolarboy/deadreads#Description)
-- [Application Architecture && Technologies Used](https://github.com/djangothesolarboy/deadreads#Application_Architecture_&&_Technologies_Used)
-- [Technology Shields](https://github.com/djangothesolarboy/deadreads#Technology_Shields)
-- [Frontend Overview](https://github.com/djangothesolarboy/deadreads#Frontend_Overview)
-- [Backend Overview](https://github.com/djangothesolarboy/deadreads#Backend_Overview)
+- [Application Architecture && Technologies Used](https://github.com/djangothesolarboy/deadreads#Application-Architecture-&&-Technologies-Used)
+- [Technology Shields](https://github.com/djangothesolarboy/deadreads#Technology-Shields)
+- [Frontend Overview](https://github.com/djangothesolarboy/deadreads#Frontend-Overview)
+- [Backend Overview](https://github.com/djangothesolarboy/deadreads#Backend-Overview)
 
 
 ## [Description]:
