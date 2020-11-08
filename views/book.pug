@@ -10,7 +10,7 @@ block content
   div.book
     div.books-container
       div.container
-        img(src=`${book.coverArt}` width="80px" height="100px")
+        img(src=`${book.coverArt}` width="160px" height="200px")
         div.form
           form(action=`/books/${book.id}` method="post")
             select.cryptSelector(name="cryptSelector")
@@ -35,5 +35,11 @@ block content
           //- appending textarea and button
     .add-new-review
       button.add-review Add review
+
+    ul.list(id=`${book.id}` style="list-style-type:none;")
+      li.title= book.title
+      li.author by #{book.author}
+      li.synopsis= book.synopsis
+      li.published published #{book.publicationDate}
 
   include footer.pug

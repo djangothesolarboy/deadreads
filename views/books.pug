@@ -4,14 +4,13 @@ append head
   link(rel="stylesheet" href="/stylesheets/books.css")
 
 block content
-  ul
-    each book in books
-      div.books
-        a(href=`/books/${book.id}`)
-          img(src=`${book.coverArt}` width="80px" height="100px")
-        //- ul.list
-        //-   li= book.title
-        //- li by #{book.author}
-        //-   li= book.synopsis
-        //-   li published #{book.publicationDate}
+  div.main-contaier
+    div.books-container
+      p.books-title Books
+      div.nested-books-container
+        ul
+          each book in books
+            div.books
+              a(href=`/books/${book.id}`)
+                img(src=`${book.coverArt}` width="180px" height="250px")
   include footer.pug

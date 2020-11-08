@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Gypsy Curse";
+    src: url('Gypsy-Curse.ttf')
+  }
+
 .form {
     display: flex;
     width: 400px;
@@ -22,48 +27,44 @@
     padding: 8px;
 }
 
-/* .form-field__button {
-    border-radius: 2%;
-    width: 142px;
-    height: 22px;
-    margin-bottom: 8px;
-    padding-bottom: 2px;
-    text-align: center;
-} */
-
-
 .errors {
     color: #941b0c;
     text-align: center;
 }
 
-button {
-    border-radius: 5px;
-    width: 116px;
-    height: 48px;
-    background: #220901;
-}
-
 .form-field__button {
+<<<<<<< HEAD
     margin-left: 4px;
     margin-top: 1px;
     border-radius: 5px;
     width: 150px;
     height: 35px;
+=======
+    font-family: Lato;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    width: 100px;
+    height: 45px;
+>>>>>>> master
     color: white;
     background: #220901;
     transition: text-shadow 3s;
 }
 
 .form-field__button:hover {
-    font-weight: 900;
+    font-family: Gypsy Curse;
+    font-size: xx-large;
+    border: 1px solid black;
+    border-radius: 50px;
     color: silver;
-    font-size: x-large;
     margin-left: 4px;
     margin-top: 1px;
     color: silver;
     animation-name: color-background;
     animation-duration: 8s;
+<<<<<<< HEAD
 
     text-shadow:
         1px 4px 1px #300000,
@@ -85,6 +86,18 @@ button {
         4px 36px 1px #FD0000,
         4px 38px 1px #FE0000,
         4px 40px 2px #FF0000;
+=======
+    transition: text-shadow 3s;   
+    text-shadow: 
+      13px 30px 1px black,
+      14px 34px 1px #FC0000,
+      15px 36px 1px #FD0000,
+      16px 38px 1px #FE0000,
+      16px 40px 2px #FF0000, 
+      16px 42px 2px #FF0000, 
+      16px 44px 2px #FF0000, 
+      17px 46px 3px #FF0000; 
+>>>>>>> master
 }
 
 @keyframes color-background {
@@ -92,4 +105,8 @@ button {
     10%  {background-color: rgb(153, 106, 114);}
     20%  {background-color: red;}
     100% {background-color: red;}
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> master

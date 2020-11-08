@@ -16,15 +16,16 @@ html
           label(for="searchfield")
           input(type='search' placeholder="Search books by Title or Author..." class='searchinput' name="searchfield" id="searchfield" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$")
         div(class="usericons")
-          div(class='tags')
-            a(href='/tags') T
+          //- div(class='tags')
+          //-   a(href='/tags') T
           div(class='crypts')
-            a(href='/crypts') C
+            if user
+              a(href=`/users/${user.id}/crypts`) Crypts
           div(class='userprofile')
             if user
-              a(href=`/users/${user.id}`) U
+              a(href=`/users/${user.id}`) User
             else
-              a(href='/') U
+              a(href='/') User
 
 
       div
@@ -35,7 +36,7 @@ html
             li: a(href=`/users/${user.id}`) My Profile
             li: a(href="/users/logout") Logout
           else
-            li: a(href="/users/sign-up") Sign Up
+            li.center-circle: a(href="/users/sign-up") Sign Up
             li: a(href="/users/login") Login
         //- div(class="buttons")
         //-     form(method='POST' action='/users/logout' class="logout")
