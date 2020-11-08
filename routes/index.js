@@ -12,13 +12,9 @@ router.get(
     console.log(userId);
 
     const reviews = await Review.findAll({
-<<<<<<< HEAD
       include: [User, Book],
       order: sequelize.random(),
       limit: 5,
-=======
-      include: [User, Book ],
->>>>>>> master
     });
 
     console.log(reviews[0].User.toJSON());
