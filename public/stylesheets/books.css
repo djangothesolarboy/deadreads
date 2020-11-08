@@ -26,16 +26,10 @@
 }
 
 .book {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   margin-left: 250px;
   height: 200px;
-=======
-  display: inline-flex;
-  margin-left: 25%;
-  height: 350px;
->>>>>>> master
   justify-content: center;
   align-items: center;
   background-color: rgb(210, 180, 130);
@@ -112,7 +106,7 @@ li.synopsis {
 
 li.published {
   font-weight: 700;
-
+}
 
 .errors {
   font-size: 10px;
@@ -190,4 +184,3 @@ li.published {
 .hidden {
   display: none;
 }
-
