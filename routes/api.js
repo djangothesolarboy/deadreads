@@ -5,14 +5,21 @@ const Op = Sequelize.Op;
 
 const { requireAuth } = require("../auth");
 const { asyncHandler } = require("./utils");
-const { Crypt, User, Book, CryptJoinBook } = require("../db/models");
+const { Crypt, User, Book, CryptJoinBook, Review } = require("../db/models");
 
 router.get(
   "/books/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    const { bookId } = req.body;
+    // const { bookId } = req.body;
 
-    const book = await Book.findByPk(bookId);
+    const bookId = parseInt(req.params.id);
+
+    const book = await Book.findByPk(bookId, {
+      include: [Review, User],
+    });
+
+    console.log(book);
+
     res.json(book);
   })
 );
@@ -59,9 +66,32 @@ router.get(
       },
     });
 
-    console.log(books);
+    // console.log(books);
 
     res.json(books);
+  })
+);
+
+router.post(
+  "/reviews",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const { reviewText, bookId } = req.body;
+
+    const userId = res.locals.user.dataValues.id;
+
+    if (reviewText) {
+      await Review.create({
+        review: reviewText,
+        userId,
+        bookId,
+      });
+    } else {
+      return;
+    }
+
+    const good = true;
+    res.json(good);
   })
 );
 

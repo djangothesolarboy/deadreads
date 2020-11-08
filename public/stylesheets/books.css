@@ -7,29 +7,44 @@ table {
 
 
 .book {
-  display: inline-flex;
-  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
   height: 200px;
   justify-content: center;
   align-items: center;
   background-color: rgb(210, 180, 130);
-  padding: 15px;
+  padding: 30px;
   border-radius: 25px;
   margin-top: 50px;
   box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
   margin-bottom: 400px;
+  height: auto;
+}
+
+.synopsis {
+  width: 500px;
+  padding: 10px;
+  /* word-wrap:  */
 }
 
 .form {
   margin: 20px;
+  display: flex;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 15px;
+  margin-top: 5px;
 }
 
+.books-container {
+  display: flex;
+}
 .books {
   display: inline-flex;
   margin-left: 20px;
@@ -58,6 +73,28 @@ li.title {
   text-align: center;
   margin-top: 5px;
   padding: 5px;
+  min-height: 20.5px;
+}
+
+.review-container {
+  margin-top: 50px;
+  max-width: 500px;
+  /* background-color: rgb(210, 180, 130); */
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 25px;
+  margin-bottom: 30px;
+}
+
+.review {
+  border: 1px solid gray;
+  padding: 20px;
+  margin: 15px;
+  height: 200px;
+  width: 400px;
+  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
+  background-color: rgb(223, 196, 151);
+  border-radius: 50px;
 }
 
 .success {
@@ -65,4 +102,40 @@ li.title {
   color: green;
   margin-top: 5px;
   padding: 5px;
+  min-height: 20.5px;
+}
+
+.username {
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid gray;
+  align-self: flex-start;
+  width: 80px;
+}
+
+.add-review {
+  margin-left: 4px;
+    margin-top: 1px;
+    border-radius: 5px;
+    width: 150px;
+    height: 35px;
+    color: white;
+    background: #220901;
+    transition: text-shadow 3s;
+}
+
+.add-review:hover {
+  font-weight: 900;
+  color: silver;
+
+  margin-left: 4px;
+  margin-top: 1px;
+  color: silver;
+  animation-name: color-background;
+  animation-duration: 8s;
+}
+
+.text-area {
+  columns: 200px;
+  width: 200px;
 }

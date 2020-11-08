@@ -5,7 +5,7 @@ const Op = Sequelize.Op;
 
 const { requireAuth } = require("../auth");
 const { asyncHandler } = require("./utils");
-const { Crypt, User, Book, CryptJoinBook } = require("../db/models");
+const { Review, Crypt, User, Book, CryptJoinBook } = require("../db/models");
 
 router.get(
   "/",
@@ -22,16 +22,26 @@ router.get(
     const bookId = parseInt(req.params.id);
     const book = await Book.findByPk(bookId);
     const userId = res.locals.user.dataValues.id;
+
     const crypts = await Crypt.findAll({
       where: {
         userId,
       },
     });
 
+    // const user = await User.findByPk(userId);
+
+    const reviews = await Review.findAll({
+      where: { bookId },
+      include: User,
+    });
+
+    reviews.map((review) => console.log(review.toJSON()));
+
     // crypts.map((crypt) => console.log(crypt.toJSON()));
     //console.log("LOCALS:", res.locals)
 
-    res.render("book", { title: `${book.title}`, book, crypts });
+    res.render("book", { title: `${book.title}`, book, crypts, reviews });
   })
 );
 
@@ -41,9 +51,6 @@ router.post(
     const userId = res.locals.user.dataValues.id;
 
     const bookId = parseInt(req.params.id, 10);
-    const { cryptId } = req.body;
-
-    console.log(bookId, cryptId);
 
     const bookCrypt = await CryptJoinBook.findOne({
       where: {
@@ -51,24 +58,6 @@ router.post(
         bookId: bookId,
       },
     });
-
-    console.log(bookCrypt);
-
-    // bookCrypt.map((book) => console.log(book.toJSON()));
-
-    if (!bookCrypt) {
-      const addBooktoCrypt = await CryptJoinBook.create({
-        bookId,
-        cryptId,
-      });
-    } else {
-      const errors = { errors: "You already have this book in your crypt" };
-      // res.json(errors);
-    }
-
-    res.render("book", { title: `${book.title}`, book, crypts });
-
-    // res.redirect(`/users/${userId}/crypts/${cryptId}`);
   })
 );
 

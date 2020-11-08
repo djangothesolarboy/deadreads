@@ -16,11 +16,11 @@
 
  .form-field {
     display: flex;
-    justify-items: flex-start; 
+    justify-items: flex-start;
     align-items: center;
     flex-direction: column;
     padding: 8px;
-}  
+}
 
 /* .form-field__button {
     border-radius: 2%;
@@ -48,13 +48,13 @@ button {
     margin-left: 4px;
     margin-top: 1px;
     border-radius: 5px;
-    width: 100px;
+    width: 150px;
     height: 35px;
     color: white;
     background: #220901;
     transition: text-shadow 3s;
 }
-        
+
 .form-field__button:hover {
     font-weight: 900;
     color: silver;
@@ -64,8 +64,8 @@ button {
     color: silver;
     animation-name: color-background;
     animation-duration: 8s;
-        
-    text-shadow: 
+
+    text-shadow:
         1px 4px 1px #300000,
         1px 6px 1px #400000,
         1px 8px 1px #500000,
