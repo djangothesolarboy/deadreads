@@ -33,7 +33,7 @@ Backend things.
 One of the larger challenges of this project was ensuring we had the right database setup. We tried to design it well enough to cover all of the usages we needed. This project was incredibly important to have the relations between tables setup properly.
 
 The end database schema:  
-![Database Schema](./readme-resources/db.svg)
+![Database Schema](./readme-resources/db.png)
 
 
 ### [Conclusion && Next Steps]:
