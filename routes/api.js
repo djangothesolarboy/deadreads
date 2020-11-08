@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 const { requireAuth } = require("../auth");
 const { asyncHandler } = require("./utils");
@@ -30,7 +32,7 @@ router.post(
     });
 
     if (exists) {
-      const error = "This book has already been added to your crypt";
+      const error = "This book has already been added";
       res.json(error);
     } else {
       const addBookToCrypt = await CryptJoinBook.create({
@@ -41,6 +43,25 @@ router.post(
 
       res.json(success);
     }
+  })
+);
+
+router.get(
+  "/search",
+  asyncHandler(async (req, res) => {
+    const searchTerm = req.query.searchTerm;
+
+    const books = await Book.findAll({
+      where: {
+        title: {
+          [Op.substring]: searchTerm,
+        },
+      },
+    });
+
+    console.log(books);
+
+    res.json(books);
   })
 );
 

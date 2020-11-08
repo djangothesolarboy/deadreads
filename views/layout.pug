@@ -13,7 +13,8 @@ html
         div(class='pagetitle')
           h2: a(href="/" class='deadreads-title') deadreads
         div(class='navsearch')
-          input(type='text' placeholder="Search horror books" class='searchinput')
+          label(for="searchfield")
+          input(type='search' placeholder="Search books by Title or Author..." class='searchinput' name="searchfield" id="searchfield" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$")
         div(class="usericons")
           //- div(class='tags')
           //-   a(href='/tags') T
@@ -42,5 +43,5 @@ html
         //-       button(type='submit') Logout
         //-     form(method='GET' action='/users/login' class='login')
         //-       button(type='submit') Login
-
+    script(src="/javascripts/search.js")
     block content

@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const crypts = document.querySelectorAll(".crypt");
   const book = document.querySelector(".list");
   const errorDiv = document.querySelector(".errors");
+  const successDiv = document.querySelector(".success");
 
   const addBook = async () => {
     const bookId = book.attributes.id.value;
@@ -26,8 +27,10 @@ window.addEventListener("DOMContentLoaded", () => {
     console.log(res);
 
     if (res === true) {
-      errorDiv.innerHTML = "Book added!";
+      errorDiv.innerHTML = "";
+      successDiv.innerHTML = "Book added!";
     } else {
+      successDiv.innerHTML = "";
       errorDiv.innerHTML = res;
     }
   };
