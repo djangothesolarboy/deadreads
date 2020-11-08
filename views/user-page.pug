@@ -7,16 +7,16 @@ block content
   div.banner
     h2.banner-text User Info
   ul.user-info(style="list-style-type:none;") Username:
-    li.username=user.username 
+    li.username=user.username
     li.fullName=user.fullName
     li.gender=user.gender
-    p.labelBDay 
+    p.labelBDay
     p Birthdate:
     li.birthdate=user.birthdate
-    p.labelEmail 
+    p.labelEmail
     p Email:
     li.email=user.email
-    p.member 
+    p.member
     p Member Since:
     li.createdAt=user.createdAt
     div.links-container
@@ -24,6 +24,6 @@ block content
         a.booksLink(href="/books" class='booklink') Browse Books
       //- div.spacer
       div.reviews
-        a.reviewsLink(href="/") Browse Reviews
+        a.reviewsLink(href="/reviews") Browse Reviews
   div.banner
   include footer
