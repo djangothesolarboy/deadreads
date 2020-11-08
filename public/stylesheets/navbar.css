@@ -4,12 +4,14 @@
 }
 
 .mainnav {
+  height: 150px;
   background-color: #BC3908;
   position: sticky;
   top: 0px;
 }
 
 .navbar {
+  height: 110px;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
@@ -58,7 +60,8 @@ padding: 0 10px;
   4px 40px 2px #FF0000;
 }
 
-.navlinks {
+ul.navlinks {
+  height: 40px;
   display: flex;
   padding: 20px;
   justify-content: center;
@@ -132,7 +135,7 @@ padding: 0 10px;
     17px 46px 3px #FF0000; 
 }
 
-.navlinks li {
+ul.navlinks li {
   margin-left: 50px;
   display: inline-flex;
   border-radius: 50px;

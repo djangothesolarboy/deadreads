@@ -1,12 +1,29 @@
 extends layout.pug
 
+append head
+  link(rel="stylesheet" href="/stylesheets/user-page.css")
+
 block content
-
-  p Here is a page that should display the users crypts, their victims, and their reviews
-
-  ul
-    li=user.fullName
-    li=user.gender
-    li=user.birthdate
-
+  div.banner
+    h2.banner-text User Info
+  ul.user-info(style="list-style-type:none;") Username:
+    li.username=user.username 
+    li.fullName=user.fullName
+    li.gender=user.gender
+    p.labelBDay 
+    p Birthdate:
+    li.birthdate=user.birthdate
+    p.labelEmail 
+    p Email:
+    li.email=user.email
+    p.member 
+    p Member Since:
+    li.createdAt=user.createdAt
+    div.links-container
+      div.moreBooks
+        a.booksLink(href="/books" class='booklink') Browse Books
+      //- div.spacer
+      div.reviews
+        a.reviewsLink(href="/") Browse Reviews
+  div.banner
   include footer
