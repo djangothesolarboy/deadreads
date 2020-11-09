@@ -4,10 +4,10 @@
 
 ### [Table Of Contents]:
 - [Description](https://github.com/djangothesolarboy/deadreads#Description)
-- [Application Architecture && Technologies Used](https://github.com/djangothesolarboy/deadreads#Application_Architecture_&&_Technologies_Used)
-- [Technology Shields](https://github.com/djangothesolarboy/deadreads#Technology_Shields)
-- [Frontend Overview](https://github.com/djangothesolarboy/deadreads#Frontend_Overview)
-- [Backend Overview](https://github.com/djangothesolarboy/deadreads#Backend_Overview)
+- [Application Architecture && Technologies Used](https://github.com/djangothesolarboy/deadreads#Application-Architecture-&&-Technologies-Used)
+- [Technology Shields](https://github.com/djangothesolarboy/deadreads#Technology-Shields)
+- [Frontend Overview](https://github.com/djangothesolarboy/deadreads#Frontend-Overview)
+- [Backend Overview](https://github.com/djangothesolarboy/deadreads#Backend-Overview)
 
 
 ## [Description]:
@@ -23,8 +23,19 @@ The frontend uses the [Pug](https://pugjs.org/api/getting-started.html) templati
 
 
 ### [Frontend Overview]:
-Most of the application was based on the backend and its database. Although there was a fairly heavy usage of the Pug template engine to create a more dynamic HTML page.
+Most of the application was based on the backend and its database. Although there was a fairly heavy usage of the Pug template engine to create a more dynamic HTML page. The navigation should be easy and intuitive with the user having the ability to customize his/her/their experience.
 
+### [Example Sign-up]
+An example of the sign-up form
+![Database Schema](./readme-resources/sign-up-recording.gif)
+
+### [Example Login]:
+An example of how to use the login function. If the user wishes to try the sites functionality before signing up, select the demo user button
+![Database Schema](./readme-resources/login-recording.gif)
+
+### [Example of Site Navigation]
+A display of various routes taken while navigating site
+![Database Schema](./readme-resources/site-navigation-recording.gif)
 
 ### [Backend Overview]:
 Backend things.

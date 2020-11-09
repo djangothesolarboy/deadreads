@@ -22,6 +22,7 @@ const usersRouter = require("./routes/users");
 const booksRouter = require("./routes/books");
 const cryptsRouter = require("./routes/crypts");
 const apiRouter = require("./routes/api");
+const reviewsRouter = require("./routes/reviews");
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use("/users", usersRouter);
 app.use("/books", booksRouter);
 app.use("/users/:id/crypts", cryptsRouter);
 app.use("/api", apiRouter);
+app.use("/reviews", reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(create404);

@@ -21,11 +21,11 @@ block content
           button(type="submit" id="crypt-submit") Submit
         div.errors
         div.success
-      ul.list(id=`${book.id}`)
+      ul.list(id=`${book.id}` style="list-style-type:none;")
         li.title= book.title
-        li by #{book.author}
-        div.synopsis= `- ${book.synopsis}`
-        li published #{book.publicationDate}
+        li.author by #{book.author}
+        li.synopsis= book.synopsis
+        li.published published #{book.publicationDate}
     .review-text Reviews
     .review-container
       div.textcontainer
@@ -35,11 +35,5 @@ block content
           //- appending textarea and button
     .add-new-review
       button.add-review Add review
-
-    ul.list(id=`${book.id}` style="list-style-type:none;")
-      li.title= book.title
-      li.author by #{book.author}
-      li.synopsis= book.synopsis
-      li.published published #{book.publicationDate}
 
   include footer.pug

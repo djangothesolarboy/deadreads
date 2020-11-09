@@ -7,21 +7,25 @@ const { User, Review, Book, sequelize } = require("../db/models");
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const userId = res.locals.user.dataValues.id;
+    if (res.locals.user) {
+      const userId = res.locals.user.dataValues.id;
 
-    console.log(userId);
+      console.log(userId);
 
-    const reviews = await Review.findAll({
-      include: [User, Book],
-      order: sequelize.random(),
-      limit: 5,
-    });
+      const reviews = await Review.findAll({
+        include: [User, Book],
+        order: sequelize.random(),
+        limit: 5,
+      });
 
-    console.log(reviews[0].User.toJSON());
+      console.log(reviews[0].User.toJSON());
 
-    const books = await Book.findAll({ limit: 5 });
+      const books = await Book.findAll({ limit: 5 });
 
-    res.render("index", { title: "deadreads", reviews, books });
+      res.render("index", { title: "deadreads", reviews, books });
+    } else {
+      res.redirect("/users/login");
+    }
   })
 );
 
