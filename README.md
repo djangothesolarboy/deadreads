@@ -1,5 +1,5 @@
 # [deadreads](https://deadreads.herokuapp.com/) - Social Media for Horror Book lovers
-*By [Adam Jacobson](https://github.com/djangothesolarboy) [Zac Watts](https://github.com/zdwatts) [Michael Gann](https://github.com/michael-gann) [David Griffin](https://github.com/davidleegriffin)*
+*By [Damien Darko](https://github.com/djangothesolarboy) [Zac Watts](https://github.com/zdwatts) [Michael Gann](https://github.com/michael-gann) [David Griffin](https://github.com/davidleegriffin)*
 
 
 ### [Table Of Contents]:
