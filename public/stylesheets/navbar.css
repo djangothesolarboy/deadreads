@@ -17,7 +17,8 @@
 
 .navbar {
 	height: auto;
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto auto;
 	width: 100%;
 	margin: 0 auto;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.03);
@@ -56,7 +57,7 @@ ul.navlinks {
 
 .pagetitle {
 	align-self: flex-start;
-	margin-top: 20px;
+	margin: 20px 50px 0px 0px;
 }
 
 .searchinput {
