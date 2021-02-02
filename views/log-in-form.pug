@@ -8,18 +8,21 @@ append head
 
 block content
     +validationErrorSummary(errors)
-    form(action='/users/login' class="form" method='POST')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        div.form-field
-            label(for="username") Username:
-            input(type="text" name="username" class="username" required)
-        div.form-field
-            label(for="password") Password:
-            input(type="password" name="password" class="password" required)
-        div.form-field
-            button(type="submit" class="form-field__button")
-                span Login
-        div.form-field
-            button(type="submit" class="demobtn form-field__button")
-                span Demo Login
+    div.main-login-container
+        div.form-container
+            div.welcome-to Please login
+            form(action='/users/login' class="form" method='POST')
+                input(type='hidden' name='_csrf' value=csrfToken)
+                div.form-field
+                    label(for="username") Username
+                    input(type="text" name="username" class="username" placeholder="Jane123" required)
+                div.form-field
+                    label(for="password") Password
+                    input(type="password" name="password" class="password" placeholder="Password..." required)
+                div.form-field
+                    button(type="submit" class="form-field__button")
+                        span Login
+                div.form-field
+                    button(type="submit" class="demobtn form-field__button")
+                        span Demo Login
     include footer
