@@ -61,10 +61,8 @@ router.post(
 
 // GET users sign-up page
 router.get("/sign-up", csrfProtection, (req, res) => {
-	const user = db.User.build();
 	res.render("sign-up-form", {
 		title: "New User",
-		user,
 		csrfToken: req.csrfToken(),
 	});
 });
