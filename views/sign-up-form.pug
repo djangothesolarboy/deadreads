@@ -7,32 +7,32 @@ append head
 
 block content
   +validationErrorSummary(errors)
-  form(action="/users/sign-up" class="form" method="POST")
-    input(type="hidden" value=csrfToken name="_csrf")
-    div.form-field
-      label(for="username") Username:
-      input(type="text" name="username" required)
-    div.form-field
-      label(for="email") Email:
-      input(type="text" name="email" required)
-    div.form-field
-      label(for="password") Password:
-      input(type="password" name="password" required)
-    div.form-field
-      label(for="confirmPassword") Confirm Password:
-      input(type="password" name="confirmPassword" required)
-    div.form-field
-      label(for="birthdate") Birthdate:
-      input(type="date" name="birthdate" required)
-    div.form-field
-      label(for="fullName") Full Name:
-      input(type="text" name="fullName" required)
-    div.form-field
-      label(for="gender") Gender:
-      select(name="gender" id="gender" required)
-        option(value="Male") Male
-        option(value="Female") Female
-        option(value="other") Other
-    button(type="submit" class="form-field__button")
-      span Sign Up
+  div.main-login-container
+        div.form-container
+            div.welcome-to Welcome
+            form(action="/users/sign-up" class="form" method="POST")
+              input(type="hidden"  value=csrfToken name="_csrf")
+              div.form-field
+                label(for="username") Username:
+                input(type="text" placeholder="Jane123" name="username" required)
+              div.form-field
+                label(for="email") Email:
+                input(type="text" placeholder="jane@example.com" name="email" required)
+              div.form-field
+                label(for="password") Password:
+                input(type="password" placeholder="Password..." name="password" required)
+              div.form-field
+                label(for="confirmPassword") Confirm Password:
+                input(type="password" placeholder="Password..." name="confirmPassword" required)
+              div.form-field
+                label(for="fullName") Full Name:
+                input(type="text" placeholder="Jane Doe" name="fullName" required)
+              div.form-field.gender
+                label(for="gender") Gender:
+                select(name="gender" id="gender" required)
+                  option(value="Male") Male
+                  option(value="Female") Female
+                  option(value="other") Other
+              button(type="submit" class="form-field__button")
+                span Sign Up
   include footer.pug

@@ -23,7 +23,6 @@ module.exports = {
         type: Sequelize.STRING,
       },
       birthdate: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       fullName: {
