@@ -5,10 +5,11 @@
 
 .mainnav {
   height: 150px;
-  background-color: #BC3908;
+  background-color: rgb(240, 240, 240);
   position: sticky;
   top: 0px;
   margin-bottom: 50px;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.1), 0px 0px 8px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
@@ -16,7 +17,7 @@
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .navsearch {
@@ -62,22 +63,25 @@ padding: 0 10px;
 }
 
 ul.navlinks {
-  height: 40px;
   display: flex;
-  padding: 20px;
+  padding: 10px;
   justify-content: center;
+}
+
+.pagetitle {
+  align-self: center;
 }
 
 .searchinput {
   padding: 10px;
-  font-size:0.9em;
+  font-size: 0.9em;
   min-width: 800px;
   max-width: 800px;
   height: 35px;
   border: 0;
   border-radius: 10px;
-  box-shadow:0 0 20px 5px rgba(0,0,0,0.1);
-  background-color: rgb(210, 180, 130);
+  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
+  background-color: rgb(255, 255, 255);
   box-sizing: border-box;
 }
 
@@ -114,7 +118,7 @@ ul.navlinks {
   transition: text-shadow 3s;
 }
 
-.crypts:hover, .userprofile:hover {
+/* .crypts:hover, .userprofile:hover {
   padding-top: 0px;
   font-family: Gypsy Curse;
   font-size: 37px;
@@ -134,55 +138,30 @@ ul.navlinks {
     16px 42px 2px #FF0000,
     16px 44px 2px #FF0000,
     17px 46px 3px #FF0000;
-}
+} */
 
 ul.navlinks li {
   margin-left: 50px;
   display: inline-flex;
-  border-radius: 50px;
   width: 106px;
-  height: 40px;
-  background: #220901;
-  transition: text-shadow 3s;
 }
 
+/* MIGHT NEED TO REVISIT */
 .navlinks li.center-circle, .navlinks li.center-circle>a {
-  color: #621708;
-  background: #F6AA1C;
-  border: 1px solid #220901;
-  border-radius: 50px;
-  font-weight: 900;
+  display: inline-flex;
+  color: black;
+  text-decoration: none;
 }
 
 .navlinks li a {
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  width: 100%;
+  color: black;
   text-decoration: none;
-  transition: text-shadow 3s;
+  transition: text-decoration 300ms ease-in;
 }
 
 .navlinks li a:hover {
-  font-family: Gypsy Curse;
-  font-size: 40px;
-  border: 1px solid black;
-  border-radius: 20px;
-  color: silver;
-  animation-name: color-background;
-  animation-duration: 8s;
-  transition: text-shadow 3s;
-
-  text-shadow:
-    13px 30px 1px black,
-    14px 34px 1px #FC0000,
-    15px 36px 1px #FD0000,
-    16px 38px 1px #FE0000,
-    16px 40px 2px #FF0000,
-    16px 42px 2px #FF0000,
-    16px 44px 2px #FF0000,
-    17px 46px 3px #FF0000;
+  text-decoration: underline;
 }
 
 @keyframes color-background {
