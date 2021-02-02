@@ -12,30 +12,27 @@ block content
 
     h2.welcome Welcome to deadreads!
 
-    p Here we've curated a selection of horrific novels for you to browse.
-
-    div.books-container
-      p.books-title Books
-      div.nested-books-container
-        if books
-          each book in books
-            div.books
-              a(href=`/books/${book.id}` class="bookimglink"): img(src=book.coverArt class="book-image")
-      div.booklink-container
-        a(href="/books" class='booklink') Browse More Books
-    .reviews-container
-      p.reviews-title Recent Reviews
-      div.nested-reviews-container
-        if reviews && user
-          each review in reviews
-            div.reviews
-              div.review-container
-                div.imgcontainer
-                  a(href=`/books/${review.Book.id}` class="reviewimglink"): img(src=review.Book.coverArt class="review-image")
-                div.textcontainer
-                  div.username= review.User.fullName
-                  div.review= review.review
-      div.reviewlink-container
-        if user
-          a(href=`/reviews` class="reviewlink") Browse Reviews
+    div.page-wrapper
+      div.books-container
+        p.books-title Books
+        div.nested-books-container
+          if books
+            each book in books
+              div.books
+                a(href=`/books/${book.id}` class="bookimglink"): img(src=book.coverArt class="book-image")
+      .reviews-container
+        p.reviews-title Recent Reviews
+        div.nested-reviews-container
+          if reviews && user
+            each review in reviews
+              div.reviews
+                div.review-container
+                  div.imgcontainer
+                    a(href=`/books/${review.Book.id}` class="reviewimglink"): img(src=review.Book.coverArt class="review-image")
+                  div.textcontainer
+                    div.username= review.User.fullName
+                    div.review= review.review
+        div.reviewlink-container
+          if user
+            a(href=`/reviews` class="reviewlink") Browse Reviews
   include footer
