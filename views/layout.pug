@@ -15,17 +15,6 @@ html
         div(class='navsearch')
           label(for="searchfield")
           input(type='search' placeholder="Search books by Title or Author..." class='searchinput' name="searchfield" id="searchfield" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$")
-        div(class="usericons")
-          //- div(class='tags')
-          //-   a(href='/tags') T
-          div(class='crypts')
-            if user
-              a(href=`/users/${user.id}/crypts`) Crypts
-          div(class='userprofile')
-            if user
-              a(href=`/users/${user.id}`) User
-            else
-              a(href='/') User
 
 
       div
