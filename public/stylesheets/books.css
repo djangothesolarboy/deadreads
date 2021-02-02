@@ -1,210 +1,218 @@
 @font-face {
-  font-family: "Grenze Gotisch";
-  src: url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100;200;300;400;500;600;700;800;900&display=swap")
+	font-family: "Grenze Gotisch";
+	src: url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100;200;300;400;500;600;700;800;900&display=swap");
 }
 
-.books-title, .reviews-title {
-  font-size: 32px;
-  border-bottom: 1px solid black;
-  text-align: center;
+.books-title,
+.reviews-title {
+	font-size: 32px;
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
 }
 
 .books-container {
-  position: relative;
-  top: 0px;;
-  flex-direction: row;
-  flex-grow: 1;
-  background-color: rgb(210, 180, 130);
-  padding: 15px;
-  border-radius: 25px;
-  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
-  margin-bottom: 50px;
+	align-self: center;
+	width: 1200px;
+	flex-direction: row;
+	flex-grow: 1;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05), 0 0 8px 8px rgba(0, 0, 0, 0.1),
+		0 0 12px 12px rgba(0, 0, 0, 0.08);
+	margin-top: 50px;
+	background-color: white;
+	margin-right: 60px;
 }
 
 .nested-books-container {
-  display: inline-block;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .book {
-  display: flex;
-  flex-direction: column;
-  margin-left: 250px;
-  height: fit-content;
-  width: fit-content;
-  justify-content: center;
-  align-items: center;
-  background-color:transparent;
-  padding: 30px;
-  border-radius: 25px;
-  margin-top: 50px;
-  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
-  margin-bottom: 400px;
-  z-index: -40;
-  margin-right: 180px;
+	display: flex;
+	flex-direction: column;
+	margin-left: 250px;
+	height: fit-content;
+	width: fit-content;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	padding: 30px;
+	border-radius: 25px;
+	margin-top: 50px;
+	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+	margin-bottom: 400px;
+	z-index: -40;
+	margin-right: 180px;
 }
 
 .review-container {
-  position: relative;
-  top: 0px;
-  z-index: -10;
+	position: relative;
+	top: 0px;
+	z-index: -10;
 }
 
 .review-text {
-  font-weight: bold;
-  font-size: 20px;
-  border-bottom: 1px solid black;
-  width: 200px;
-  text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	width: 200px;
+	text-align: center;
 }
 
 .synopsis {
-  width: 500px;
-  padding: 10px;
-  /* word-wrap:  */
+	width: 500px;
+	padding: 10px;
+	/* word-wrap:  */
 }
 
 .form {
-  margin: 20px;
-  display: flex;
+	margin: 20px;
+	display: flex;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  margin-top: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	margin-top: 5px;
 }
 
 .books-container {
-  display: flex;
-  z-index: -10;
+	display: flex;
+	z-index: -10;
 }
 .books {
-  display: inline-flex;
-  margin: 25px;
-  justify-content: center;
-  align-items: center;
+	display: inline-flex;
+	margin: 25px;
+	justify-content: center;
+	align-items: center;
 }
 
 ul.list {
-  margin-bottom: 75px;
-  margin-left: 50px;
+	margin-bottom: 75px;
+	margin-left: 50px;
 }
 
 li.title {
-  font-family: "Grenze Gotisch";
-  font-size: xxx-large;
+	font-family: "Grenze Gotisch";
+	font-size: xxx-large;
 }
 
 li.author {
-  /* font-family: "Grenze Gotisch"; */
-  font-size: large;
+	/* font-family: "Grenze Gotisch"; */
+	font-size: large;
 }
 
 li.synopsis {
-  font-family: "Grenze Gotisch";
-  font-size: large;
-  width: 450px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
+	font-family: "Grenze Gotisch";
+	font-size: large;
+	width: 450px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
 }
 
 li.published {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 .errors {
-  font-size: 10px;
-  color: red;
-  text-align: center;
-  margin-top: 5px;
-  padding: 5px;
-  min-height: 20.5px;
+	font-size: 10px;
+	color: red;
+	text-align: center;
+	margin-top: 5px;
+	padding: 5px;
+	min-height: 20.5px;
 }
 
 .review-container {
-  margin-top: 50px;
-  max-width: 500px;
-  /* background-color: rgb(210, 180, 130); */
-  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  border-radius: 25px;
-  margin-bottom: 30px;
+	margin-top: 50px;
+	max-width: 500px;
+	/* background-color: rgb(210, 180, 130); */
+	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+	padding: 15px;
+	border-radius: 25px;
+	margin-bottom: 30px;
 }
 
 .review {
-  border: 1px solid gray;
-  padding: 20px;
-  margin: 15px;
-  height: 200px;
-  width: 400px;
-  box-shadow: 0 0 20px 5px rgba(0,0,0,0.1);
-  background-color: rgb(223, 196, 151);
-  border-radius: 50px;
+	border: 1px solid gray;
+	padding: 20px;
+	margin: 15px;
+	height: 200px;
+	width: 400px;
+	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+	background-color: rgb(223, 196, 151);
+	border-radius: 50px;
 }
 
 .success {
-  font-size: 10px;
-  color: green;
-  margin-top: 5px;
-  padding: 5px;
-  min-height: 20.5px;
+	font-size: 10px;
+	color: green;
+	margin-top: 5px;
+	padding: 5px;
+	min-height: 20.5px;
 }
 
 .username {
-  text-align: center;
-  margin-bottom: 15px;
-  border-bottom: 1px solid gray;
-  align-self: flex-start;
-  width: 80px;
+	text-align: center;
+	margin-bottom: 15px;
+	border-bottom: 1px solid gray;
+	align-self: flex-start;
+	width: 80px;
 }
 
 .add-review {
-  margin-left: 4px;
-    margin-top: 1px;
-    border-radius: 5px;
-    width: 150px;
-    height: 35px;
-    color: white;
-    background: #220901;
-    transition: text-shadow 3s;
+	margin-left: 4px;
+	margin-top: 1px;
+	border-radius: 5px;
+	width: 150px;
+	height: 35px;
+	color: white;
+	background: #220901;
+	transition: text-shadow 3s;
 }
 
 .add-review:hover {
-  font-weight: 900;
-  color: silver;
+	font-weight: 900;
+	color: silver;
 
-  margin-left: 4px;
-  margin-top: 1px;
-  color: silver;
-  animation-name: color-background;
-  animation-duration: 8s;
+	margin-left: 4px;
+	margin-top: 1px;
+	color: silver;
+	animation-name: color-background;
+	animation-duration: 8s;
 }
 
 .text-area {
-  columns: 200px;
-  width: 200px;
+	columns: 200px;
+	width: 200px;
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 
 .textcontainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .text-area {
-  margin-bottom: 20px;
-  height: 180px;
-  width: 380px;
+	margin-bottom: 20px;
+	height: 180px;
+	width: 380px;
 }
