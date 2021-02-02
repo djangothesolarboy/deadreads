@@ -41,14 +41,11 @@
 }
 
 .deadreads-title:hover {
-	transition: text-shadow 4s;
+	transition: text-shadow 1s;
 	text-shadow: 1px 4px 1px #300000, 1px 6px 1px #400000, 1px 8px 1px #500000,
 		1px 10px 1px #600000, 2px 12px 1px #700000, 2px 14px 1px #800000,
 		2px 16px 1px #900000, 2px 18px 1px #a00000, 3px 20px 1px #b00000,
-		3px 22px 1px #c00000, 3px 24px 1px #d00000, 3px 26px 1px #e00000,
-		3px 28px 1px #f00000, 3px 30px 1px #fa0000, 3px 32px 1px #fb0000,
-		4px 34px 1px #fc0000, 4px 36px 1px #fd0000, 4px 38px 1px #fe0000,
-		4px 40px 2px #ff0000;
+		3px 22px 1px #c00000, 3px 24px 1px #d00000;
 }
 
 ul.navlinks {
@@ -59,6 +56,7 @@ ul.navlinks {
 
 .pagetitle {
 	align-self: flex-start;
+	margin-top: 20px;
 }
 
 .searchinput {
