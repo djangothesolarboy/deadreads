@@ -17,3 +17,16 @@
   align-content: center;
   min-height: 90px;
 }
+
+.michael, .zac, .david {
+  width: fit-content;
+  height: 50px;
+  back-ground-color: white;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 2px  2px 4px rgba(40, 40, 40, 0.5);
+  font-family: sans-serif;
+  font-size: 20px;
+}
