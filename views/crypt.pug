@@ -1,7 +1,6 @@
 extends layout.pug
 
 append head
-
   link(rel='stylesheet' href="/stylesheets/crypt-book.css")
 
 
@@ -13,6 +12,6 @@ block content
         if displayBooks
           each book in displayBooks
             div.books
-              a(href=`/books/${book.id}` class="bookimglink"): img(src=`/books/${book.coverArt}` class="book-image")
-
+              a(href=`/books/${book.id}` class="bookimglink")
+               img(src=`/books/${book.coverArt}` class="book-image")
   include footer.pug
