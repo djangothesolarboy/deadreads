@@ -16,10 +16,10 @@ h2.banner-text {
 
 ul.user-info {
 	margin-top: 20px;
-	border-top-left-radius: 25px;
-	border-top-right-radius: 25px;
+	border-radius: 5px;
+	padding: 10px;
 	width: 80%;
-	height: 1000px;
+	height: fit-content;
 	background-color: white;
 	color: black;
 	margin-left: 10%;
@@ -40,19 +40,6 @@ li.gender {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 2ch;
 	margin-bottom: 20px;
-}
-
-p.labelBDay {
-	margin-left: 10%;
-	margin-right: 10%;
-	/* width: 80%; */
-	border-top: 1px solid black;
-	/* border-top-left-radius: 25px; */
-	/* border-top-right-radius: 25px; */
-}
-
-li.birthdate {
-	font-size: 5ch;
 }
 
 p.labelEmail {
@@ -87,54 +74,27 @@ li.createdAt {
 	display: inline-flex;
 	justify-content: space-around;
 	align-items: center;
-	font-family: Gypsy Curse;
-	font-size: 70px;
+	font-size: 30px;
 }
 
-.moreBooks {
-	margin-top: 100px;
-	color: #621708;
-	background-color: #140501;
-	border-radius: 50%;
-	width: 175px;
-	height: 175px;
-	display: inline-flex;
-	justify-content: space-around;
-	align-items: center;
-	text-align: center;
-	background-color: #f6aa1c;
-	align-items: center;
-}
-
+.moreBooks,
 .reviews {
 	margin-top: 100px;
-	color: #621708;
-	background-color: #140501;
-	border-radius: 50%;
+	color: white;
+	border-radius: 5px;
 	width: 175px;
 	height: 175px;
 	display: inline-flex;
 	justify-content: space-around;
 	align-items: center;
 	text-align: center;
-	background-color: #f6aa1c;
+	background-color: #2a231df5;
 	align-items: center;
 }
 
 .moreBooks:hover,
 .reviews:hover {
-	font-family: Gypsy Curse;
 	font-size: 40px;
-	border: 1px solid black;
-	border-radius: 50%;
-	color: silver;
-	animation-name: color-background;
-	animation-duration: 8s;
-	transition: text-shadow 3s;
-
-	text-shadow: 13px 30px 1px black, 14px 34px 1px #fc0000, 15px 36px 1px #fd0000,
-		16px 38px 1px #fe0000, 16px 40px 2px #ff0000, 16px 42px 2px #ff0000,
-		16px 44px 2px #ff0000, 17px 46px 3px #ff0000;
 }
 
 @keyframes color-background {
