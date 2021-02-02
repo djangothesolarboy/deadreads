@@ -1,11 +1,14 @@
+.page-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
 .banner {
 	color: black;
 	width: 100%;
 	height: 80px;
 	margin: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	/* justify-self: center; */
 }
 
 h2.banner-text {
@@ -14,11 +17,16 @@ h2.banner-text {
 	margin-top: 20px;
 }
 
+.profile-wrapper {
+	align-self: center;
+}
+
 ul.user-info {
+	align-self: center;
 	margin-top: 20px;
 	border-radius: 5px;
 	padding: 10px;
-	width: 80%;
+	width: 500px;
 	height: fit-content;
 	background-color: white;
 	color: black;
@@ -79,11 +87,11 @@ li.createdAt {
 
 .moreBooks,
 .reviews {
-	margin-top: 100px;
+	margin: 20px;
 	color: white;
 	border-radius: 5px;
-	width: 175px;
-	height: 175px;
+	width: 150px;
+	height: 150px;
 	display: inline-flex;
 	justify-content: space-around;
 	align-items: center;

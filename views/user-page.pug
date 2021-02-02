@@ -4,20 +4,20 @@ append head
   link(rel="stylesheet" href="/stylesheets/user-page.css")
 
 block content
-  div.banner
-    h2.banner-text User Info
-  ul.user-info(style="list-style-type:none;") Username:
-    li.username=user.username
-    li.fullName=user.fullName
-    li.gender=user.gender
-    p.labelEmail
-    p Email:
-    li.email=user.email
-    div.links-container
-      div.moreBooks
-        a.booksLink(href="/books" class='booklink') Browse Books
-      //- div.spacer
-      div.reviews
-        a.reviewsLink(href="/reviews") Browse Reviews
-  div.banner
+  div.page-wrapper
+    div.profile-wrapper
+      ul.user-info(style="list-style-type:none;") Username:
+        li.username=user.username
+        li.fullName=user.fullName
+        li.gender=user.gender
+        p.labelEmail
+        p Email:
+        li.email=user.email
+        div.links-container
+          div.moreBooks
+            a.booksLink(href="/books" class='booklink') Browse Books
+          //- div.spacer
+          div.reviews
+            a.reviewsLink(href="/reviews") Browse Reviews
+      div.banner
   include footer
