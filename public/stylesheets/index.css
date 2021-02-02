@@ -72,6 +72,7 @@
 	padding: 15px;
 	border-radius: 5px;
 	margin-bottom: 30px;
+	height: fit-content;
 	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05), 0 0 8px 8px rgba(0, 0, 0, 0.1),
 		0 0 12px 12px rgba(0, 0, 0, 0.08);
 }
