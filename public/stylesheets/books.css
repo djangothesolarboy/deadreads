@@ -111,7 +111,6 @@ li.title {
 }
 
 li.author {
-	/* font-family: "Grenze Gotisch"; */
 	font-size: large;
 }
 
@@ -140,8 +139,6 @@ li.published {
 .review-container {
 	margin-top: 50px;
 	max-width: 500px;
-	/* background-color: rgb(210, 180, 130); */
-	/* box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1); */
 	padding: 15px;
 	border-radius: 25px;
 	margin-bottom: 30px;
@@ -182,7 +179,6 @@ li.published {
 	height: 35px;
 	color: white;
 	background: #2a231df5;
-	/* transition: text-shadow 3s; */
 }
 
 .add-review:hover {
