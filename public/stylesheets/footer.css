@@ -1,11 +1,10 @@
 .footer {
-	min-height: 100px;
-	background-color: #e0a42b;
-	margin-top: 10%;
-	position: relative;
-	bottom: 0px;
-	width: 100%;
-	z-index: -10;
+  min-height: 100px;
+  background-color: #E0A42B;
+  margin-top: 10%;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
 }
 
 .footer-links {
@@ -18,17 +17,28 @@
 	min-height: 90px;
 }
 
-.michael,
-.zac,
-.david {
-	width: fit-content;
-	height: 50px;
-	background-color: white;
-	color: black;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	box-shadow: 2px 2px 4px rgba(40, 40, 40, 0.5);
-	font-family: sans-serif;
-	font-size: 20px;
+.michael, .zac, .david {
+  width: fit-content;
+  height: 50px;
+  /* background-color: white; */
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  /* box-shadow: 2px  2px 4px rgba(40, 40, 40, 0.5); */
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.michael a, .zac a, .david a {
+  margin-left: 8px;
+  margin-right: 8px;
+  opacity: 0.6;
+  transition: opacity 300ms ease-in;
+  font-size: 1.5rem;
+}
+
+a:hover {
+opacity: 1;
+cursor: pointer;
 }
