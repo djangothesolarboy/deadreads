@@ -36,22 +36,28 @@
 	flex-wrap: wrap;
 }
 
+.page-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .book {
 	display: flex;
 	flex-direction: column;
-	margin-left: 250px;
+	/* margin-left: 250px; */
 	height: fit-content;
 	width: fit-content;
 	justify-content: center;
 	align-items: center;
 	background-color: transparent;
 	padding: 30px;
-	border-radius: 25px;
-	margin-top: 50px;
-	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
-	margin-bottom: 400px;
+	border-radius: 5px;
+	margin-top: 25px;
+	/* box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1); */
+	margin-bottom: 150px;
 	z-index: -40;
-	margin-right: 180px;
+	/* margin-right: 180px; */
 }
 
 .review-container {
@@ -61,6 +67,7 @@
 }
 
 .review-text {
+	margin-top: 20px;
 	font-weight: bold;
 	font-size: 20px;
 	border-bottom: 1px solid black;
@@ -92,6 +99,7 @@
 	display: flex;
 	z-index: -10;
 }
+
 .books {
 	display: inline-flex;
 	margin: 25px;
@@ -110,7 +118,6 @@ li.title {
 }
 
 li.author {
-	/* font-family: "Grenze Gotisch"; */
 	font-size: large;
 }
 
@@ -139,8 +146,6 @@ li.published {
 .review-container {
 	margin-top: 50px;
 	max-width: 500px;
-	/* background-color: rgb(210, 180, 130); */
-	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
 	padding: 15px;
 	border-radius: 25px;
 	margin-bottom: 30px;
@@ -153,8 +158,8 @@ li.published {
 	height: 200px;
 	width: 400px;
 	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
-	background-color: rgb(223, 196, 151);
-	border-radius: 50px;
+	background-color: white;
+	border-radius: 5px;
 }
 
 .success {
@@ -180,19 +185,13 @@ li.published {
 	width: 150px;
 	height: 35px;
 	color: white;
-	background: #220901;
-	transition: text-shadow 3s;
+	background: #2a231df5;
 }
 
 .add-review:hover {
 	font-weight: 900;
-	color: silver;
-
 	margin-left: 4px;
 	margin-top: 1px;
-	color: silver;
-	animation-name: color-background;
-	animation-duration: 8s;
 }
 
 .text-area {
