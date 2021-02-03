@@ -37,7 +37,6 @@ const userValidators = [
       return true;
     }),
   check("gender").exists({ checkFalsy: true }),
-  check("birthdate").exists({ checkFalsy: true }),
 ];
 
 const loginValidators = [
