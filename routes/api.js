@@ -10,19 +10,13 @@ const { Crypt, User, Book, CryptJoinBook, Review } = require("../db/models");
 router.get(
   "/books/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    // const { bookId } = req.body;
-
     const bookId = parseInt(req.params.id);
 
     const book = await Book.findByPk(bookId, {
       include: Review,
     });
 
-    // console.log(book.toJSON());
-
     const userId = book.Reviews[book.Reviews.length - 1].userId;
-
-    // console.log(userId);
 
     const user = await User.findByPk(userId);
 
@@ -36,8 +30,6 @@ router.post(
   "/books/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const { bookId, cryptId } = req.body;
-
-    // console.log(bookId, cryptId);
 
     const exists = await CryptJoinBook.findOne({
       where: {
@@ -73,8 +65,6 @@ router.get(
         },
       },
     });
-
-    // console.log(books);
 
     res.json(books);
   })

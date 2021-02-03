@@ -25,19 +25,6 @@
 .form {
     margin-top: 50px;
     width: 300px;
-    /* display: flex;
-    width: 400px;
-    justify-items: flex-start;
-    align-self: center;
-    flex-direction: column;
-    color: #f6aa1c;
-    padding: 5px;
-    background-color: #621708;
-    border: 2px solid #941b0c;
-    margin: auto;
-    margin-top: 80px;
-    border-radius: 5%;
-    margin-bottom: 80%; */
 }
 
  .form-field {
@@ -45,11 +32,6 @@
     flex-direction: column;
     margin-top:30px;
     justify-content: center;
-    /* display: flex;
-    justify-items: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 8px; */
 }
 
 .form-field label {
@@ -94,16 +76,6 @@
     height: 30px;
     border-radius: 15px;
     font-size: 15px;
-    /* font-family: Lato;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    width: 100px;
-    height: 45px;
-    color: white;
-    background: #220901;
-    transition: text-shadow 3s; */
 }
 
 .form-field button:hover {
@@ -117,4 +89,8 @@
     text-align: center;
     margin-top: 10%;
     color: rgb(56, 52, 52);
+}
+
+.form-field button:active {
+    transform: translate(2px, 1px);
 }

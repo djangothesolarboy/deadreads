@@ -24,8 +24,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     const res = await result.json();
 
-    console.log(res);
-
     if (res === true) {
       errorDiv.innerHTML = "";
       successDiv.innerHTML = "Book added!";

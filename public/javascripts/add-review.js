@@ -40,8 +40,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
       const res = await result.json();
 
-      // console.log(res);
-
       if (res === true) {
         const results = await fetch(`/api/books/${bookId}`);
 
@@ -54,11 +52,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
         newButton.classList.add("hidden");
 
         count = 0;
-        // const user = newRes.User;
-
-        // console.log(newRes);
-
-        // console.log(newRes);
 
         const review = newRes.book.Reviews[newRes.book.Reviews.length - 1];
 
@@ -73,8 +66,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
         textContain.appendChild(usernameDiv);
         textContain.appendChild(reviewDiv);
-
-        console.log(textArea);
       }
     }
   });

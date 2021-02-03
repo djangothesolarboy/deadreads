@@ -29,17 +29,10 @@ router.get(
       },
     });
 
-    // const user = await User.findByPk(userId);
-
     const reviews = await Review.findAll({
       where: { bookId },
       include: User,
     });
-
-    // reviews.map((review) => console.log(review.toJSON()));
-
-    // crypts.map((crypt) => console.log(crypt.toJSON()));
-    //console.log("LOCALS:", res.locals)
 
     res.render("book", { title: `${book.title}`, book, crypts, reviews });
   })
@@ -66,8 +59,6 @@ router.get(
   asyncHandler(async (req, res) => {
     const searchTerm = req.query.searchTerm;
 
-    // console.log(searchTerm);
-
     const books = await Book.findAll({
       where: {
         [Op.or]: [
@@ -76,8 +67,6 @@ router.get(
         ],
       },
     });
-
-    // console.log(books);
 
     res.render("results", { title: "Search Results", books, searchTerm });
   })

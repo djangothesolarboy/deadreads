@@ -132,15 +132,6 @@ router.get(
 
     const user = await db.User.findByPk(userId);
 
-    console.log("BIRTHDAY:", user.birthdate);
-    const newDate = new Date(user.birthdate);
-    console.log(
-      "BETTER BIRTHDAY:",
-      newDate.getDay(),
-      newDate.getFullYear(),
-      newDate.getMonth()
-    );
-
     res.render("user-page", { title: "My Profile", user });
   })
 );
@@ -178,7 +169,6 @@ router.get(
   asyncHandler(async (req, res) => {
     const cryptId = parseInt(req.params.id, 10);
     const crypt = await db.Crypt.findByPk(cryptId);
-    // const userId = crypt.userId;
 
     const books = await db.CryptJoinBook.findAll({
       where: {
@@ -198,20 +188,6 @@ router.get(
       },
     });
 
-    displayBooks.map((book) => {
-      console.log(book.toJSON());
-    });
-
-    // const displayBooks = await booksArray.forEach((bookId) => {
-    //    db.Book.findAll({
-    //     where: {
-    //       id: bookId
-    //     }
-    //   });
-    // });
-
-    // console.log("DISPLAY BOOKS, BITCH:", displayBooks)
-
     if (displayBooks.length > 0) {
       res.render("crypt", { title: crypt.name, crypt, displayBooks });
     } else {
@@ -229,10 +205,6 @@ router.get(
     const reviews = await db.Review.findAll({
       include: db.Book,
     });
-
-    // const reviews2 = reviews.map((review) => console.log(review.toJSON()));
-
-    // const books = reviews.map((review) => console.log(review.Book.toJSON()));
 
     res.render("reviews", { title: "Reviews", reviews });
   })
