@@ -187,11 +187,8 @@ li.published {
 
 .add-review:hover {
 	font-weight: 900;
-	/* color: silver; */
-
 	margin-left: 4px;
 	margin-top: 1px;
-	/* color: silver; */
 }
 
 .text-area {
