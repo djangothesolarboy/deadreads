@@ -48,7 +48,7 @@
 	padding: 30px;
 	border-radius: 25px;
 	margin-top: 50px;
-	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+	/* box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1); */
 	margin-bottom: 400px;
 	z-index: -40;
 	margin-right: 180px;
@@ -92,6 +92,7 @@
 	display: flex;
 	z-index: -10;
 }
+
 .books {
 	display: inline-flex;
 	margin: 25px;
@@ -140,7 +141,7 @@ li.published {
 	margin-top: 50px;
 	max-width: 500px;
 	/* background-color: rgb(210, 180, 130); */
-	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+	/* box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1); */
 	padding: 15px;
 	border-radius: 25px;
 	margin-bottom: 30px;
@@ -153,8 +154,8 @@ li.published {
 	height: 200px;
 	width: 400px;
 	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
-	background-color: rgb(223, 196, 151);
-	border-radius: 50px;
+	background-color: white;
+	border-radius: 5px;
 }
 
 .success {
@@ -180,19 +181,17 @@ li.published {
 	width: 150px;
 	height: 35px;
 	color: white;
-	background: #220901;
-	transition: text-shadow 3s;
+	background: #2a231df5;
+	/* transition: text-shadow 3s; */
 }
 
 .add-review:hover {
 	font-weight: 900;
-	color: silver;
+	/* color: silver; */
 
 	margin-left: 4px;
 	margin-top: 1px;
-	color: silver;
-	animation-name: color-background;
-	animation-duration: 8s;
+	/* color: silver; */
 }
 
 .text-area {
