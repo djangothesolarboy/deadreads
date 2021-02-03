@@ -56,14 +56,12 @@
 	margin-top: 25px;
 	/* box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1); */
 	margin-bottom: 150px;
-	z-index: -40;
 	/* margin-right: 180px; */
 }
 
 .review-container {
 	position: relative;
 	top: 0px;
-	z-index: -10;
 }
 
 .review-text {
@@ -93,11 +91,11 @@
 	align-items: center;
 	padding: 15px;
 	margin-top: 5px;
+	position: relative;
 }
 
 .books-container {
 	display: flex;
-	z-index: -10;
 }
 
 .books {
