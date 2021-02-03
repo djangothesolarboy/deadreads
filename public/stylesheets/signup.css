@@ -97,3 +97,7 @@
     cursor: pointer;
     color: black;
 }
+
+.form-field__button:active {
+    transform: translate(2px, 1px);
+}
