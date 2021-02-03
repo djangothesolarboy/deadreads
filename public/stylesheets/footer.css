@@ -5,7 +5,6 @@
   position: relative;
   bottom: 0px;
   width: 100%;
-  z-index: -10;
 }
 
 .footer-links {
@@ -21,12 +20,25 @@
 .michael, .zac, .david {
   width: fit-content;
   height: 50px;
-  back-ground-color: white;
+  /* background-color: white; */
   color: black;
   text-decoration: none;
   display: flex;
   align-items: center;
-  box-shadow: 2px  2px 4px rgba(40, 40, 40, 0.5);
+  /* box-shadow: 2px  2px 4px rgba(40, 40, 40, 0.5); */
   font-family: sans-serif;
   font-size: 20px;
+}
+
+.michael a, .zac a, .david a {
+  margin-left: 8px;
+  margin-right: 8px;
+  opacity: 0.6;
+  transition: opacity 300ms ease-in;
+  font-size: 1.5rem;
+}
+
+a:hover {
+opacity: 1;
+cursor: pointer;
 }
