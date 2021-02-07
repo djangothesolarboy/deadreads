@@ -17,7 +17,7 @@
 	min-height: 90px;
 }
 
-.michael, .zac, .david {
+.michael, .zac, .david, .damien {
   width: fit-content;
   height: 50px;
   color: black;
@@ -28,7 +28,7 @@
   font-size: 20px;
 }
 
-.michael a, .zac a, .david a {
+.michael a, .zac a, .david a, .damien a {
   margin-left: 8px;
   margin-right: 8px;
   opacity: 0.6;
