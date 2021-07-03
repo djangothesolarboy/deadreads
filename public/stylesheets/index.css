@@ -33,7 +33,7 @@
 	width: 0;
 }
 .books-container {
-	width: 1200px;
+	width: 60%;
 	flex-direction: row;
 	flex-grow: 1;
 	padding: 15px;
@@ -41,6 +41,7 @@
 	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05), 0 0 8px 8px rgba(0, 0, 0, 0.1),
 		0 0 12px 12px rgba(0, 0, 0, 0.08);
 	margin-top: 50px;
+	margin-left: 10px;
 	background-color: white;
 	margin-right: 60px;
 }
@@ -74,6 +75,14 @@
 	height: fit-content;
 	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05), 0 0 8px 8px rgba(0, 0, 0, 0.1),
 		0 0 12px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 800px) {
+	.page-wrapper {
+		flex-wrap: none;
+		flex-direction: column;
+		justify-content: center;
+	}
 }
 
 .reviewlink-container {
